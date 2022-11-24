@@ -19,13 +19,13 @@ const Nav = (props: NavProps) => {
     return (
         <div className='nav-container'>
             <div className='nav-title'>
-                <a href='/'><strong>{props.title}</strong></a>
+                <a className='link' href='/'><strong>{props.title}</strong></a>
             </div>
             <div className='nav-links'>
-                {props.links.map(x => <a onClick={x.onClick} key={x.label}>{x.label}</a>)}
+                {props.links.map(x => <a className='link' onClick={x.onClick} key={x.label}>{x.label}</a>)}
                 {
                     props.showMenu &&
-                    <a onClick={props.onMenuClick}>
+                    <a className='link' onClick={props.onMenuClick}>
                         <div className='nav-contact'>
                             <button>{props.menuLabel}</button>
                         </div>
