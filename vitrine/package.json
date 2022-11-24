@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "lib:update": "ts-node --project ./tsconfig.json ./scripts/update-package.js"
   },
   "dependencies": {
     "@types/node": "18.11.9",
@@ -19,6 +20,7 @@
     "typescript": "4.9.3"
   },
   "devDependencies": {
-    "sass": "^1.56.1"
+    "sass": "^1.56.1",
+    "ts-node": "^10.9.1"
   }
 }
