@@ -6,8 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
-    "lib:update": "ts-node --project ./tsconfig.json ./scripts/update-package.js"
+    "lint": "next lint"
   },
   "dependencies": {
     "@types/node": "18.11.9",
