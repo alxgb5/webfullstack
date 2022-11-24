@@ -1,0 +1,101 @@
+@import url('../../assets/main.css');
+
+.nav-container {
+    width: 45rem;
+    height: 40px;
+    background-color: #fff;
+    border-radius: 10px;
+    margin: 20px auto;
+    box-shadow: 0px 4px 20px 0px rgba(0, 0, 0, 0.1);
+    transition: 500ms ease-in-out;
+    padding: 30px 20px;
+    z-index: 1000;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 10px;
+    align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .nav-container {
+        width: 100%;
+        padding: 20px 10px;
+        height: 60px;
+        column-gap: 0px;
+    }
+}
+
+.nav-container .nav-title {
+    font-size: 1.2rem;
+    color: #000;
+}
+
+.nav-container .nav-links {
+    display: flex;
+    flex-direction: row;
+    column-gap: 10px;
+    align-items: center;
+}
+
+@media only screen and (max-width: 600px) {
+    .nav-container .nav-links {
+        column-gap: 10px;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+    font-weight: 500;
+}
+
+.nav-container .nav-links a:visited {
+    color: #000;
+    text-decoration: none;
+}
+
+.nav-container .nav-links .nav-contact {
+    margin-left: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+    .nav-container .nav-links .nav-contact {
+        display: none;
+    }
+}
+
+.nav-container .nav-links .nav-contact button {
+    background-color: #165df5;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 8px;
+    border: 0px solid transparent;
+}
+
+.nav-container:hover {
+    width: 46rem;
+    background-color: #165df5;
+    cursor: pointer;
+    color: #fff;
+}
+
+@media only screen and (max-width: 600px) {
+    .nav-container:hover {
+        width: 100%;
+    }
+}
+
+.nav-container:hover .nav-title a,
+.nav-container:hover .nav-links a,
+.nav-container:hover .nav-title p,
+.nav-container:hover .nav-links p {
+    color: #fff;
+}
+
+.nav-container:hover .nav-title button,
+.nav-container:hover .nav-links button {
+    background-color: #fff;
+    color: #165df5;
+    cursor: pointer;
+}
