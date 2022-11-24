@@ -1,3 +1,5 @@
+import { UIButton } from 'my-lib-ui'
+
 const HeaderComponent: React.FC = () => {
   return (
     <header className="header">
@@ -7,7 +9,7 @@ const HeaderComponent: React.FC = () => {
         <p>RIDE</p>
       </div>
 
-      <button>button-my-lib-ui</button>
+      <UIButton label={"Connexion admin"} color={"primary"}></UIButton>
     </header>
   )
 }

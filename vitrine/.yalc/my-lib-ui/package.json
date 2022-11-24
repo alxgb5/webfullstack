@@ -50,6 +50,7 @@
     "identity-obj-proxy": "^3.0.0",
     "jest": "^29.0.2",
     "jest-environment-jsdom": "^29.0.2",
+    "my-lib-ui": "file:.yalc/my-lib-ui",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "rollup": "^2.79.0",
@@ -69,5 +70,5 @@
     "dist"
   ],
   "types": "dist/index.d.ts",
-  "yalcSig": "162cfded587cfe30904442bc9e8e98be"
+  "yalcSig": "b78cc5a0592cd6e7e60c42dacb0003a6"
 }

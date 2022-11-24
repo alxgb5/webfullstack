@@ -14,6 +14,17 @@ export default function Home() {
 
       <HeaderComponent />
 
+      <main>
+        <section></section>
+        <section>
+          <div>
+            <p>▷ Depuis 2008, RIDE, agence de location de voitures de luxe propose ses services partout en France (Paris, Monaco, Nice, Cannes, Saint-Tropez, Courchevel, Saint-Moritz...).</p>
+            <p>Notre expérience est à votre service pour répondre à toutes vos demandes</p>
+            <hr />
+          </div>
+        </section>
+      </main>
+
       <FooterComponent />
     </div>
   )
