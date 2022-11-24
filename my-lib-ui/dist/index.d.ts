@@ -29,4 +29,6 @@ interface SpinnerProps {
 }
 declare const Spinner: (props: SpinnerProps) => JSX.Element | null;
 
-export { Button, Nav, Spinner };
+declare const UIButton: () => JSX.Element;
+
+export { Button, Nav, Spinner, UIButton };
