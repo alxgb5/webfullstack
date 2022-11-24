@@ -1,0 +1,13 @@
+@import url('../../assets/main.css');
+
+button {
+    border: none;
+    border-radius: 0;
+    background-color: var(--ui-red);
+    color: var(--ui-white);
+    padding: 12px 16px;
+    min-width: 150px;
+    min-height: 44px;
+    font-weight: 700;
+    font-size: 16px;
+}
