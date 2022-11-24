@@ -1,8 +1,13 @@
 import React from "react";
 import './UIButton.css';
 
-const UIButton = () => {
-    return <button>Coucou</button>;
+export interface UIButtonProps {
+    label: string;
+    onClick?: () => void;
+}
+
+const UIButton = (props: UIButtonProps) => {
+    return <button onClick={props.onClick}>{props.label}</button>;
 };
 
 export default UIButton;
