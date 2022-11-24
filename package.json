@@ -1,0 +1,22 @@
+{
+  "name": "webfullstack",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "lib:update": "ts-node --project ./tsconfig.json ./scripts/update-package.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexBrunGiglio/webfullstack.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AlexBrunGiglio/webfullstack/issues"
+  },
+  "homepage": "https://github.com/AlexBrunGiglio/webfullstack#readme",
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  },
+  "type": "module"
+}
