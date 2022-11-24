@@ -10,6 +10,8 @@ export default {
 
 export const Button: ComponentStory<typeof UIButton> = () => (
     <div>
-        <UIButton label='Button'></UIButton>
+        <UIButton label='Primary' color={"primary"}></UIButton>
+        <UIButton label='Light' color={"light"}></UIButton>
+        <UIButton label='Dark' color={"dark"}></UIButton>
     </div>
 );
