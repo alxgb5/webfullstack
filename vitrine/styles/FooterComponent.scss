@@ -1,0 +1,27 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: black;
+  color: white;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  a {
+    font-family: 'Roboto';
+    text-decoration: underline;
+    margin: 12px 0 12px 83px;
+  }
+
+  a:nth-child(1) {
+    margin-top: 24px;
+  }
+
+  p {
+    font-family: 'Abel';
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 28px;
+  }
+}

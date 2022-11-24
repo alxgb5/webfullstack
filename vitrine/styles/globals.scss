@@ -1,0 +1,34 @@
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: 'Bayon';
+  src: url('../assets/Bayon/Bayon-regular.ttf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../assets/Roboto/Roboto-Light.ttf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Abel';
+  src: url('../assets/Abel/Abel-Regular.ttf');
+  font-style: normal;
+}
