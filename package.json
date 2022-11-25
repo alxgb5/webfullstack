@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
+    "lib:init": "ts-node --project ./tsconfig.json ./scripts/init-package.js",
     "lib:update": "ts-node --project ./tsconfig.json ./scripts/update-package.js"
   },
   "repository": {
