@@ -34,3 +34,10 @@ div.input-field-container input:focus~.line {
     bottom: 0;
     width: 100%;
 }
+
+p.error {
+    color: red;
+    margin: 0;
+    padding: 0;
+    font-size: 14px;
+}
