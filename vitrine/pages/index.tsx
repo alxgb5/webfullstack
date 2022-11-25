@@ -13,8 +13,8 @@ export default function Home() {
 
       <main>
         <BannerComponent />
-        <CardComponent title={"Inscription"} intro={"▷ Depuis 2008, RIDE, agence de location de voitures de luxe propose ses services partout en France (Paris, Monaco, Nice, Cannes, Saint-Tropez, Courchevel, Saint-Moritz...). <br>Notre expérience est à votre service pour répondre à toutes vos demandes"}>
-          <p>testsopsdfskd</p>
+        <CardComponent title={"Inscription"}>
+          <p>TODO register form</p>
         </CardComponent>
       </main>
 

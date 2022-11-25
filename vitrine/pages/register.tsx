@@ -13,8 +13,14 @@ export default function Register() {
 
       <main>
         <BannerComponent />
-        <CardComponent title={"Inscription"} intro={"Depuis 2008, RIDE, agence de location de voitures de luxe propose ses services partout en France (Paris, Monaco, Nice, Cannes, Saint-Tropez, Courchevel, Saint-Moritz...). <br>Notre expérience est à votre service pour répondre à toutes vos demandes"}>
-          <p>testsopsdfskd</p>
+        <CardComponent title={"Inscription"}>
+          <div className='success-register-card'>
+            <p className='success-register-message'>Votre demande d’inscription a bien été prise en compte.<br />Vous allez recevoir une confirmation par mail, en attendant vous pouvez télécharger l’application.</p>
+            <div className="stores">
+              <img className="store" alt="Apple Store" src="/appstore.svg" />
+              <img className="store" alt="Google Play" src="/googleplay.svg" />
+            </div>
+          </div>
         </CardComponent>
       </main>
 

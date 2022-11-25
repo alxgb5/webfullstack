@@ -1,29 +1,8 @@
 .card {
-  position: relative;
-  top: -15vh;
-  width: 60%;
+  width: 70%;
   margin: auto;
-  background-color: white;
-  padding: 16px 43px;
-
-  .arrow {
-    color: red;
-  }
-
-  .intro {
-    margin: 0;
-    font-size: 18px;
-    line-height: 25px;
-  }
-
-  .divider {
-    border-color: #C00000;
-    background-color: #C00000;
-    border-width: 1px;
-    width: 90%;
-    margin-top: 16px;
-    margin-bottom: 32px;
-  }
+  padding: 32px 43px 8px 43px;
+  margin-bottom: 80px;
 
   h1 {
     color: #C00000;
@@ -34,5 +13,6 @@
     font-weight: 5000;
     line-height: 25px;
     margin: 0;
+    margin-bottom: 8px;
   }
 }
