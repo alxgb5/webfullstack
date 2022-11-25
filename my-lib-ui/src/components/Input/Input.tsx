@@ -3,19 +3,20 @@ import './input.css';
 
 export interface InputFieldProps {
     label: string;
-    placeholder: string;
+    placeholder?: string;
 
-    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
 
-    value: string;
+    value?: string;
 }
 
 
 const InputField = (props: InputFieldProps) => {
     return (
-        <div>
+        <div className='input-field-container'>
             <p>{props.label}</p>
-            <input type={'text'} value={props.value} placeholder={props.placeholder || ''} onChange={(event) => { props.onChange(event); }} />
+            <input type={'text'} placeholder={props.placeholder || ''} />
+            <div className='line'></div>
         </div>
     );
 };

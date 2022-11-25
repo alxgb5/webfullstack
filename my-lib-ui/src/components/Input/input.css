@@ -1,0 +1,36 @@
+div.input-field-container {
+    background-color: #F9F9F9;
+    padding: 7px 15px;
+    position: relative;
+    height: 54px;
+}
+
+div.input-field-container p {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    color: #2D2D2D;
+}
+
+div.input-field-container input {
+    border: none;
+    border-radius: 0;
+    padding: 0px;
+    background-color: #F9F9F9;
+    width: 100%;
+    margin: 0;
+    font-size: 16px;
+    color: var(--ui-red);
+}
+
+div.input-field-container input:focus {
+    outline: none;
+}
+
+div.input-field-container input:focus~.line {
+    border-bottom: 3px solid var(--ui-black);
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
