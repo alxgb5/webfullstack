@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import PhoneField from "./PhoneField";
 
@@ -7,17 +7,29 @@ export default {
     component: PhoneField,
 } as ComponentMeta<typeof PhoneField>;
 
-let frenchPhoneRegex = '^((\+)33|0)[1-9](\d{2}){4}$'
-let value = ''
+let frenchPhoneRegex = '^((\+)33|0)[1-9](\d{2}){4}$';
 
-export const PhoneFieldUI: ComponentStory<typeof PhoneField> = () => (
-    <div>
-        <PhoneField
-            label='Phone number'
-            onChange={(e) => { value = e.target.value }}
-            placeholder='Entre votre numéro de téléphone'
-            value={value}
-            validator={frenchPhoneRegex}
-        />
-    </div>
-);
+
+export const PhoneFieldUI: ComponentStory<typeof PhoneField> = () => {
+    const [value, setValue] = useState("");
+    return (
+        <div>
+            <PhoneField
+                label='Phone Field'
+                placeholder='Entrez un numéro'
+                value={value}
+                onChange={(e) => { setValue(e.target.value); }}
+                validator={frenchPhoneRegex}
+            />
+        </div>);
+};
+
+
+export const PhoneFieldUICustom: ComponentStory<typeof PhoneField> = (args) => {
+    return (
+        <div>
+            <PhoneField
+                {...args}
+            />
+        </div>);
+};
