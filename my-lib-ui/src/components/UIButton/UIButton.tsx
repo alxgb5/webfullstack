@@ -10,7 +10,7 @@ export interface UIButtonProps {
 const UIButton = (props: UIButtonProps) => {
     if (props.color == null)
         props.color = 'primary';
-    return <button onClick={props.onClick} className={props.color}>{props.label}</button>;
+    return <button onClick={props.onClick} className={'ui-btn ' + props.color}>{props.label}</button>;
 };
 
 export default UIButton;
