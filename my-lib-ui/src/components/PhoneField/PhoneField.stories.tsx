@@ -1,16 +1,23 @@
 import React from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
-import InputField from './PhoneField';
+import PhoneField from "./PhoneField";
 
 export default {
-    title: "UI/InputFields",
-    component: InputField,
-} as ComponentMeta<typeof InputField>;
+    title: "UI/PhoneField",
+    component: PhoneField,
+} as ComponentMeta<typeof PhoneField>;
 
-let value = '';
+let frenchPhoneRegex = '^((\+)33|0)[1-9](\d{2}){4}$'
+let value = ''
 
-export const InputFieldUI: ComponentStory<typeof InputField> = () => (
+export const PhoneFieldUI: ComponentStory<typeof PhoneField> = () => (
     <div>
-        <InputField label='Input' onChange={(e) => { value = e.target.value; }} placeholder='Entrez une valeur' value={value} />
+        <PhoneField
+            label='Phone number'
+            onChange={(e) => { value = e.target.value }}
+            placeholder='Entre votre numéro de téléphone'
+            value={value}
+            validator={frenchPhoneRegex}
+        />
     </div>
 );
