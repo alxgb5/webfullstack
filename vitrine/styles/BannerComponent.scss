@@ -1,0 +1,37 @@
+.banner {
+  background-image: url('../public/home.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 70vh;
+  width: 100%;
+  position: relative;
+
+  div {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: white;
+    width: 70%;
+    margin: auto;
+
+    .arrow {
+      color: red;
+    }
+  
+    .intro {
+      margin: 0;
+      font-size: 18px;
+      line-height: 25px;
+      padding: 16px 43px;
+    }
+  
+    .divider {
+      border-color: #C00000;
+      background-color: #C00000;
+      border-width: 1px;
+      width: 90%;
+      margin: 0 auto;
+    }
+  }
+}
