@@ -25,7 +25,7 @@ export default function Home() {
           <form className='register' onSubmit={(e) => { handleSubmit(e) }}>
             <div className='row'>
               <div className='group'>
-                <RadioField label='Je suis' radios={[{label: 'une entreprise', value: 'company', checked: true},{label: 'une personne', value: 'person', checked: false}]} />
+                <RadioField label='Je suis' radios={[{ label: 'une entreprise', value: 'company', checked: true }, { label: 'une personne', value: 'person', checked: false }]} />
               </div>
             </div>
 
@@ -40,10 +40,10 @@ export default function Home() {
 
             <div className='row'>
               <div className='group'>
-                <EmailField label='E-mail' onChange={(e) => {}} value={""} />
+                <EmailField label='E-mail' onChange={(e) => { }} value={""} />
               </div>
               <div className='group'>
-                <PhoneField label="Numéro de téléphone" onChange={(e) => {}} />
+                <PhoneField label="Numéro de téléphone" onChange={(e) => { }} />
               </div>
             </div>
 
