@@ -12,11 +12,7 @@ let value = '';
 export const RadioFieldUI: ComponentStory<typeof RadioField> = () => (
     <div>
         <RadioField
-            label="Vous êtes :"
-            radios={[
-                { label: 'Un particulier', value: 'particulier', checked: true },
-                { label: 'Une entreprise', value: 'entreprise', checked: false },
-            ]}
+            titre="Vous êtes :"
             onChange={(event) => value = event.target.value}
         />
     </div>
