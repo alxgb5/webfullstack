@@ -36,7 +36,7 @@ div.input-field-container input:focus~.line {
 }
 
 p.error {
-    color: red;
+    color: var(--ui-red);
     margin: 0;
     padding: 0;
     font-size: 14px;

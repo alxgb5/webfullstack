@@ -1,0 +1,9 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('../../assets/fonts/Lato-Regular.ttf');
+}
+
+label{
+    font-family: 'Lato';
+    margin-left: 10px;
+}
