@@ -13,11 +13,18 @@ a {
 
 * {
   box-sizing: border-box;
+  font-family: 'Lato';
 }
 
 @font-face {
   font-family: 'Bayon';
   src: url('../assets/Bayon/Bayon-Regular.ttf');
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Lato';
+  src: url('../assets/Lato/Lato-Regular.ttf');
   font-style: normal;
 }
 

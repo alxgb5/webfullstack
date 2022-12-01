@@ -1,5 +1,7 @@
 main {
   background-color: #F5F5F5;
+  height: auto;
+  min-height: 50vh;
 
   .loginCard {
     width: 30%;
@@ -39,5 +41,20 @@ main {
         width: 100% !important;
       }
     }
+  }
+}
+
+@media screen and (max-width: 992px) {
+  main {
+    .loginCard {
+      width: 100%;
+      margin: 0;
+      padding: 0 16px;
+      
+      a.back{
+        padding-top: 20px;
+      }
+    }
+
   }
 }

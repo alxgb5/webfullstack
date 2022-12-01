@@ -25,7 +25,9 @@ export default function Home() {
           <form className='register' onSubmit={(e) => { handleSubmit(e) }}>
             <div className='row'>
               <div className='group'>
-                <RadioField label='Je suis' radios={[{ label: 'une entreprise', value: 'company', checked: true }, { label: 'une personne', value: 'person', checked: false }]} />
+                <RadioField titre='Je suis' onChange={() => {
+                  console.log('changing');
+                }} />
               </div>
             </div>
 
@@ -40,16 +42,16 @@ export default function Home() {
 
             <div className='row'>
               <div className='group'>
-                <EmailField label='E-mail' value={""} />
+                <EmailField label='E-mail' value="" placeholder="" onChange={() => { }} />
               </div>
               <div className='group'>
-                <PhoneField label="Numéro de téléphone" />
+                <PhoneField label="Numéro de téléphone" placeholder='' onChange={() => { }} />
               </div>
             </div>
 
             <div className='row'>
               <div className='group'>
-                <SelectField label='Nationalité' placeholder='Sélectionner une valeur' />
+                <SelectField label='Nationalité' placeholder='Sélectionner une valeur' options={['Francais', 'Anglais', 'Allemand', 'Espagnol']} />
               </div>
             </div>
 
