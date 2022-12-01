@@ -5,3 +5,7 @@ export { default as UIButton } from './UIButton';
 export { default as InputField } from './Input';
 export { default as SelectField } from './Select';
 export { default as EmailField } from './EmailField';
+export { default as PasswordField } from './PasswordField';
+export { default as RadioField } from './RadioField';
+export { default as PhoneField } from './PhoneField';
+export { default as CheckboxField } from './CheckboxField';
