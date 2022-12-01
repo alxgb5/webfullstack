@@ -12,7 +12,7 @@ export interface EmailFieldProps {
 
 const EmailField = (props: EmailFieldProps) => {
     const [showError, setShowError] = useState<boolean>(false);
-    function handleChange(e: React.ChangeEvent<HTMLInputElement>, callback: (event: React.ChangeEvent<HTMLInputElement>) => void) {
+    function handleChange(e: React.ChangeEvent<HTMLInputElement>, callback: void) {
         setTimeout(() => {
             if (/^(([^<>()[\].,;:\s@"]+(\.[^<>()[\].,;:\s@"]+)*)|(".+"))@(([^<>()[\].,;:\s@"]+\.)+[^<>()[\].,;:\s@"]{2,})$/i.test(e.target.value)) {
                 callback;
