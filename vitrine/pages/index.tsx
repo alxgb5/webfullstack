@@ -40,10 +40,10 @@ export default function Home() {
 
             <div className='row'>
               <div className='group'>
-                <EmailField label='E-mail' onChange={(e) => { }} value={""} />
+                <EmailField label='E-mail' value={""} />
               </div>
               <div className='group'>
-                <PhoneField label="Numéro de téléphone" onChange={(e) => { }} />
+                <PhoneField label="Numéro de téléphone" />
               </div>
             </div>
 
