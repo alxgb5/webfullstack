@@ -20,3 +20,17 @@
     }
   }
 }
+
+@media screen and (max-width: 992px) {
+  .success-register-card {
+    .stores {
+      flex-direction: column;
+      align-items: center;
+
+      .store {
+        margin-bottom: 16px;
+      }
+    }
+  }
+  
+}

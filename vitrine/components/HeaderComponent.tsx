@@ -5,7 +5,7 @@ const HeaderComponent: React.FC = () => {
     <header className="header">
       <div className="left">
         <img src='/logo.svg' alt='Ride Logo' />
-      
+
         <p>RIDE</p>
       </div>
 
