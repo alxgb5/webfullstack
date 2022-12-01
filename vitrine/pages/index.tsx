@@ -57,7 +57,7 @@ export default function Home() {
 
             <div className='row'>
               <div className='group'>
-                <CheckboxField label={"J'atteste que je possède un permis de conduire valide."} checked={false} />
+                <CheckboxField label={"J'atteste que je possède un permis de conduire valide."} checked={false} onChange={() => {}} />
               </div>
             </div>
 
