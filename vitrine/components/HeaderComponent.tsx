@@ -1,4 +1,5 @@
 import { UIButton } from 'my-lib-ui'
+import Router from 'next/router';
 
 const HeaderComponent: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ const HeaderComponent: React.FC = () => {
         <p>RIDE</p>
       </div>
 
-      <UIButton label={"Connexion admin"} color={"primary"}></UIButton>
+      <UIButton onClick={() => { Router.push('/login') }} label={"Connexion admin"} color={"primary"}></UIButton>
     </header>
   )
 }
