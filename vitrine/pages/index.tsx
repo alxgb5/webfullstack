@@ -62,7 +62,7 @@ export default function Home() {
             </div>
 
             <div className='row-right'>
-              <UIButton label='Demander mon inscription' color='primary' />
+              <UIButton className='submit-button' label='Demander mon inscription' color='primary' />
             </div>
           </form>
         </CardComponent>
