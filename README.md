@@ -31,6 +31,15 @@ $ cd my-lib-ui
 $ npm run storybook
 ```
 
+## Run Jest Testing
+```bash
+$ cd my-lib-ui
+```
+
+```bash
+$ npm run test
+```
+
 ## Initiatives : 
 - [x] RegEXP sur les email / phone input
 - [x] Composant select fait à la main (à la manière Material UI)
