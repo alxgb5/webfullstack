@@ -16,8 +16,8 @@ const SelectField = (props: SelectFieldProps) => {
         <div className='select-container'>
             <div className='select-field-container' onClick={(e) => { console.log(e); setShowOptions(!showOptions); }}>
                 <p className='select-field-label'>{props.label}</p>
-                <select className='select-field' value={selectedValue} onChange={() => { }}>
-                    <option value={selectedValue} disabled selected hidden>{selectedValue ? selectedValue : (props.placeholder || 'Selectionnez une valeur')}</option>
+                <select className='select-field' defaultValue={selectedValue} onChange={() => { }} >
+                    <option defaultValue={selectedValue} disabled hidden>{selectedValue ? selectedValue : (props.placeholder || 'Selectionnez une valeur')}</option>
                 </select>
             </div>
             {

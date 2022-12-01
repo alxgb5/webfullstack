@@ -12,7 +12,7 @@ $ npm install
 $ npm run lib:init
 ```
 
-## Run Project 
+## Run Vitrine 
 
 ```bash
 $ cd vitrine
@@ -21,3 +21,19 @@ $ cd vitrine
 ```bash
 $ npm run dev
 ```
+
+## Run Storybook
+```bash
+$ cd my-lib-ui
+```
+
+```bash
+$ npm run storybook
+```
+
+## Initiatives : 
+- [x] RegEXP sur les email / phone input
+- [x] Composant select fait à la main (à la manière Material UI)
+- [x] Propriétés onClick et onChange disponnible sur tout les inputs 
+- [x] Script pour l'installation de lib et la mise à jours de la lib pour yalc.
+- [x] Tests unitaires sur les composants
