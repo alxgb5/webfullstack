@@ -1,0 +1,10 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('../../assets/fonts/Lato-Regular.ttf');
+}
+
+legend{
+    font-family: 'Lato';
+    padding-left: 10px;
+    padding-right: 10px;
+}
