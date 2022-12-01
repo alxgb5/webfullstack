@@ -1,11 +1,10 @@
 .footer {
   display: flex;
   flex-direction: column;
-  background-color: black;
-  color: white !important;
+  background-color: var(--ui-black);
+  color: var(--ui-white) !important;
 
   a {
-    font-family: 'Roboto';
     text-decoration: underline;
     margin: 12px 0 12px 83px;
   }
@@ -15,7 +14,6 @@
   }
 
   p {
-    font-family: 'Abel';
     text-align: center;
     margin-top: 12px;
     margin-bottom: 28px;

@@ -11,18 +11,17 @@ main {
       padding-left: 10px;
 
       .arrow {
-        color: red;
+        color: var(--ui-red);
       }
     }
 
     .loginForm {
-      background-color: white;
+      background-color: var(--ui-white);
       padding: 16px;
       margin-top: 16px;
 
       h1 {
-        color: #C00000;
-        font-family: 'Roboto';
+        color: var(--ui-red);
         text-transform: uppercase;
         font-size: 21px;
         letter-spacing: 0.05em;
