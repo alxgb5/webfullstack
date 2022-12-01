@@ -1,11 +1,11 @@
-main {
+main.login {
   background-color: #F5F5F5;
   height: auto;
-  min-height: 50vh;
 
   .loginCard {
     width: 30%;
     margin: auto;
+    padding-top: 5vh;
 
     a.back {
       padding-left: 10px;
@@ -30,11 +30,11 @@ main {
         margin: 0;
         margin-bottom: 8px;
       }
-    
+
       .input-field-container {
         margin: 12px 0;
       }
-    
+
       button {
         margin-top: 36px;
         width: 100% !important;
@@ -44,13 +44,13 @@ main {
 }
 
 @media screen and (max-width: 992px) {
-  main {
+  main.login {
     .loginCard {
       width: 100%;
       margin: 0;
-      padding: 0 16px;
-      
-      a.back{
+      padding: 40px 16px;
+
+      a.back {
         padding-top: 20px;
       }
     }

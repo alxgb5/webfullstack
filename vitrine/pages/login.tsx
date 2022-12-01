@@ -11,7 +11,7 @@ export default function Login() {
 
       <HeaderComponent />
 
-      <main>
+      <main className='login'>
         <div className='loginCard'>
           <Link href={"/"} className="back"><span className='arrow'>←</span> retour</Link>
 
@@ -21,7 +21,7 @@ export default function Login() {
             <form>
               <InputField label='identifiant' />
               <PasswordField label='mot de passe' onChange={(e) => { }} value={''} />
-              <UIButton label='Connexion' color='primary'/>
+              <UIButton label='Connexion' color='primary' />
             </form>
           </div>
         </div>
@@ -29,5 +29,5 @@ export default function Login() {
 
       <FooterComponent />
     </div>
-  )
+  );
 }

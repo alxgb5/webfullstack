@@ -16,6 +16,10 @@ a {
   font-family: 'Lato';
 }
 
+main {
+  min-height: calc(100vh - 73px - 144px);
+}
+
 @font-face {
   font-family: 'Bayon';
   src: url('../assets/Bayon/Bayon-Regular.ttf');
