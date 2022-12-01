@@ -5,7 +5,6 @@ export interface UIButtonProps {
     label: string;
     onClick?: () => void;
     color?: 'primary' | 'light' | 'dark';
-
     className?: string;
     width?: string;
     height?: string;

@@ -30,7 +30,7 @@
     }
   },
   "scripts": {
-    "rollup": "rollup -c",
+    "rollup": "rollup -c && cp src/assets/main.css dist/",
     "test": "jest",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
