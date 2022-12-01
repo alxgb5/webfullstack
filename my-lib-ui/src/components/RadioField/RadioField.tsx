@@ -1,31 +1,31 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './radio.css';
 
 export interface RadioFieldProps {
-    label: string;
-    radios: { label: string, value: string, checked: boolean }[];
-    onChange?: (event: React.ChangeEvent<HTMLInputElement>) => void;
+    titre: string;
+    onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
 
 const RadioField = (props: RadioFieldProps) => {
+
+    const [checked1, setChecked1] = useState(true);
+    const [checked2, setChecked2] = useState(false);
+
     return (
-        <fieldset>
-            <legend>{props.label}</legend>
-            {
-                props.radios !== undefined && props.radios.length > 0 ?
-                    props.radios.map((radio, index) => {
-                        return (
-                            <div className="radio-container" key={index}>
-                                <input type="radio" id={radio.label} name={radio.label} value={radio.value} checked={radio.checked} />
-                                <label htmlFor={radio.label}>{radio.label}</label>
-                            </div>
-                        );
-                    })
-                    :
-                    <p>Aucune proposition</p>
-            }
-        </fieldset>
+        <div>
+            <p>{props.titre}</p>
+            <div className='row-container'>
+                <div className="radio-container">
+                    <input onChange={(e) => { setChecked1(!checked1); setChecked2(!checked2); props.onChange(e) }} type="radio" id="particulier" name="particulier" value="particulier" checked={checked1} />
+                    <label htmlFor="particulier">Un particulier</label>
+                </div>
+                <div className="radio-container">
+                    <input onChange={(e) => { setChecked2(!checked2); setChecked1(!checked1); props.onChange(e) }} type="radio" id="entreprise" name="entreprise" value="entreprise" checked={checked2} />
+                    <label htmlFor="entreprise">Une entreprise</label>
+                </div>
+            </div>
+        </div>
     );
 };
 

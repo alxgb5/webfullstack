@@ -8,3 +8,19 @@ legend{
     padding-left: 10px;
     padding-right: 10px;
 }
+
+.row-container{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.row-container .radio-container:nth-last-child(1){
+    margin-left: 40px;
+}
+
+input[type="radio"] {
+    accent-color: var(--ui-black);
+}
