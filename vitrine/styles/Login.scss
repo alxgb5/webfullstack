@@ -1,0 +1,43 @@
+main {
+  background-color: #F5F5F5;
+
+  .loginCard {
+    width: 30%;
+    margin: auto;
+
+    a.back {
+      padding-left: 10px;
+
+      .arrow {
+        color: red;
+      }
+    }
+
+    .loginForm {
+      background-color: white;
+      padding: 16px;
+      margin-top: 16px;
+
+      h1 {
+        color: #C00000;
+        font-family: 'Roboto';
+        text-transform: uppercase;
+        font-size: 21px;
+        letter-spacing: 0.05em;
+        font-weight: 5000;
+        line-height: 25px;
+        margin: 0;
+        margin-bottom: 8px;
+      }
+    
+      .input-field-container {
+        margin: 12px 0;
+      }
+    
+      button {
+        margin-top: 36px;
+        width: 100% !important;
+      }
+    }
+  }
+}
