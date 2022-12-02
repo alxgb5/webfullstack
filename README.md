@@ -2,6 +2,8 @@
 
 Groupe : **Avagliano Enzo**, **Brun-Giglio Alexandre**, **Castaner Antony**
 
+Projet commencé de zéro !
+
 ## Installation
 
 ```bash

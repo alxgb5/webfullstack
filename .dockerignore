@@ -1,0 +1,7 @@
+node_modules/
+my-lib-ui/node_modules/
+my-lib-ui/dist/
+my-lib-ui/.yalc/
+vitrine/node_modules/
+vitrine/.next/
+vitrine/.yalc/

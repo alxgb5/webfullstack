@@ -1,0 +1,10 @@
+version: '3.3'
+
+services:
+  vitrine:
+    build:
+      context: ./ 
+      dockerfile: ./vitrine/Dockerfile
+    ports:
+      - 3000:3000
+      - 6006:6006
