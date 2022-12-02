@@ -1,10 +1,15 @@
 version: '3.3'
 
 services:
+  storybook:
+    build:
+      context: ./
+      dockerfile: ./my-lib-ui/Dockerfile
+    ports:
+      - 6006:6006
   vitrine:
     build:
       context: ./ 
       dockerfile: ./vitrine/Dockerfile
     ports:
       - 3000:3000
-      - 6006:6006
