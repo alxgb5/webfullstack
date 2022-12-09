@@ -1,6 +1,40 @@
 version: '3.3'
 
 services:
+  app:
+    build: ./user
+    container_name: php-app
+    working_dir: /var/www/
+    volumes:
+      - ./user:/var/www
+      - ./user/vendor:/var/www/vendor
+    ports:
+      - 9000:9000
+  db:
+    image: mysql:5.7
+    container_name: mysql-db
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: toor
+      MYSQL_DATABASE: lesson
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin
+  nginx:
+    image: nginx:alpine
+    container_name: php-nginx
+    ports:
+      - 8000:80
+    volumes:
+      - ./user:/var/www
+      - ./nginx/conf.d/:/etc/nginx/conf.d/
+  phpmyadmin:
+    image: phpmyadmin
+    ports:
+      - 8080:80
+    environment:
+      - PMA_ARBITRARY=1
+      - PMA_HOST=db
   storybook:
     build:
       context: ./

@@ -4,6 +4,12 @@ Groupe : **Avagliano Enzo**, **Brun-Giglio Alexandre**, **Castaner Antony**
 
 Projet commencé de zéro !
 
+## Avec Docker
+
+```bash
+docker-compose up -d
+```
+
 ## Installation
 
 ```bash
