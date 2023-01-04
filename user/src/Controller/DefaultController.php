@@ -16,4 +16,10 @@ class DefaultController extends AbstractController
             'controller_name' => 'DefaultController',
         ]);
     }
+
+    #[Route('/api/hello', methods: 'GET')]
+    public function hello(): Response
+    {
+        return $this->json('Hello World API User Service');
+    }
 }
