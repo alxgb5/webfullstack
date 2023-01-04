@@ -1,16 +1,30 @@
-version: '3.3'
-
+version: "3.8"
 services:
-  app:
+  # PHP service
+  user:
     build: ./user
-    container_name: php-app
+    container_name: service-user
     working_dir: /var/www/
     volumes:
       - ./user:/var/www
       - ./user/vendor:/var/www/vendor
+    networks:
+      - app-network
+
+  proxy:
+    build: ./proxy
+    container_name: service-proxy
+    working_dir: /var/www/
+    volumes:
+      - ./proxy:/var/www
+    networks:
+      - app-network
     ports:
-      - 9000:9000
+      - 8000:8000
+
+  # MySQL database service
   db:
+    platform: linux/x86_64
     image: mysql:5.7
     container_name: mysql-db
     ports:
@@ -20,14 +34,19 @@ services:
       MYSQL_DATABASE: lesson
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
+    networks:
+      - app-network
+
+  # Nginx service
   nginx:
     image: nginx:alpine
     container_name: php-nginx
-    ports:
-      - 8000:80
     volumes:
       - ./user:/var/www
       - ./nginx/conf.d/:/etc/nginx/conf.d/
+    networks:
+      - app-network
+
   phpmyadmin:
     image: phpmyadmin
     ports:
@@ -35,15 +54,9 @@ services:
     environment:
       - PMA_ARBITRARY=1
       - PMA_HOST=db
-  storybook:
-    build:
-      context: ./
-      dockerfile: ./my-lib-ui/Dockerfile
-    ports:
-      - 6006:6006
-  vitrine:
-    build:
-      context: ./ 
-      dockerfile: ./vitrine/Dockerfile
-    ports:
-      - 3000:3000
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
