@@ -1,6 +1,7 @@
 import express from "express";
 import axios from "axios";
 import bodyParser from "body-parser";
+import checkToken from "./checkToken";
 
 const app = express();
 const port = 8000;
@@ -10,6 +11,8 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // parse application/json
 app.use(bodyParser.json());
+
+app.use(checkToken());
 
 app.get("/api/hello", (_, res) => {
   axios.get("http://nginx/api/hello").then((onfulfilled) => {
