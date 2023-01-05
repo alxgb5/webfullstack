@@ -2,16 +2,18 @@
 
 namespace App\Controller;
 
+use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
+use Doctrine\Persistence\ManagerRegistry;
 
 #[Route("/api/user")]
 class UserApiController extends AbstractController
 {
     #[Route('/', methods: 'GET')]
-    public function index(): Response
+    public function show(): Response
     {
         $user = $this->getUser();
         return $this->json(
@@ -21,6 +23,15 @@ class UserApiController extends AbstractController
                 'roles' => $user->getRoles()
             ]
         );
+    }
+
+    #[Route('s', methods: 'GET')]
+    public function index(ManagerRegistry $doctrine): Response
+    {
+        $entityManager = $doctrine->getManager();
+        $users = $entityManager->getRepository(User::class)->findAll();
+
+        return $this->json($users);
     }
 
     #[Route('/check_role', methods: 'POST')]

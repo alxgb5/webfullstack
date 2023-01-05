@@ -31,9 +31,6 @@ class FutureUser
     #[ORM\Column(length: 255, unique: true)]
     private ?string $email = null;
 
-    #[ORM\OneToOne(inversedBy: 'futureUser', cascade: ['persist', 'remove'])]
-    private ?User $user = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -107,18 +104,6 @@ class FutureUser
     public function setEmail(string $email): self
     {
         $this->email = $email;
-
-        return $this;
-    }
-
-    public function getUser(): ?User
-    {
-        return $this->user;
-    }
-
-    public function setUser(?User $user): self
-    {
-        $this->user = $user;
 
         return $this;
     }

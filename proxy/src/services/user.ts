@@ -88,6 +88,30 @@ const initUserService = (app: Express) => {
       });
   });
 
+  app.get("/api/.user/users", (req, res) => {
+    axios
+      .get(`${baseUrl}/users`, {
+        headers: {
+          Authorization: req.header("Authorization"),
+        },
+      })
+      .then((response) => {
+        res.send(response.data);
+      });
+  });
+
+  app.get("/api/.user/future-users", (req, res) => {
+    axios
+      .get(`${baseUrl}/future-users`, {
+        headers: {
+          Authorization: req.header("Authorization"),
+        },
+      })
+      .then((response) => {
+        res.send(response.data);
+      });
+  });
+
   app.get("/api/.user/admin", (req, res) => {
     axios
       .get(`${baseUrl}/admin`, {
