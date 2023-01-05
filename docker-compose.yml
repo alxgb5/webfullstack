@@ -34,6 +34,8 @@ services:
       MYSQL_DATABASE: lesson
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin
+    volumes:
+      - user_db:/var/lib/mysql
     networks:
       - app-network
 
@@ -60,3 +62,6 @@ services:
 networks:
   app-network:
     driver: bridge
+
+volumes:
+  user_db:
