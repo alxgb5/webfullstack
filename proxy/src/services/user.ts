@@ -80,6 +80,51 @@ const initUserService = (app: Express) => {
       });
   });
 
+  app.post("/api/.user/login/admin", (req, res) => {
+    axios
+      .post(
+        `${baseUrl}/login_check`,
+        {
+          username: req.body.username,
+          password: req.body.password,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      )
+      .then((response) => {
+        axios
+          .post(
+            `${baseUrl}/user/check_role`,
+            {
+              role: "ROLE_ADMIN",
+            },
+            {
+              headers: {
+                "Content-Type": "application/json",
+                Authorization: "Bearer " + response.data.token,
+              },
+            }
+          )
+          .then((response) => {
+            if (response.data.isAuthorized) {
+              res.send({ success: true, message: "Admin logged in" });
+            } else {
+              res.send({ success: false, message: "You are not an admin" });
+            }
+          })
+          .catch((error) => {
+            res.send(error);
+          });
+      })
+      .catch((error) => {
+        console.log(error);
+        res.send({ success: false, message: "Invalid credentials" });
+      });
+  });
+
   app.get("/api/.user/user", (req, res) => {
     axios
       .get(`${baseUrl}/user`, {
