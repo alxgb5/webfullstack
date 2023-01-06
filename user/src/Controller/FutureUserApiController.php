@@ -18,6 +18,10 @@ class FutureUserApiController extends AbstractController
         $futureUsers = $entityManager->getRepository(FutureUser::class)
             ->findBy(array('validated' => false));
 
-        return $this->json($futureUsers);
+        return $this->json(array(
+            'success' => true,
+            'data' => $futureUsers,
+            'message' => 'Future users recovered',
+        ));
     }
 }

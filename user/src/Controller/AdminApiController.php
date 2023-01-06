@@ -15,9 +15,12 @@ class AdminApiController extends AbstractController
         $user = $this->getUser();
         return $this->json(
             [
+                'success' => true,
+                'data' => array(
+                    'user' => $user->getUserIdentifier(),
+                    'roles' => $user->getRoles()
+                ),
                 'message' => "Congratulations you are admin!",
-                'user' => $user->getUserIdentifier(),
-                'roles' => $user->getRoles()
             ]
         );
     }

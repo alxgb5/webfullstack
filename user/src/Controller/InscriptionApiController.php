@@ -37,7 +37,10 @@ class InscriptionApiController extends AbstractController
         $entityManager->persist($futureUser);
         $entityManager->flush();
 
-        return $this->json('Future user registered');
+        return $this->json(array(
+            'success' => true,
+            'message' => 'Future user registered'
+        ));
     }
 
     #[Route('/validate-user/{id}', methods: 'POST')]
@@ -47,11 +50,17 @@ class InscriptionApiController extends AbstractController
         $futureUser = $entityManager->getRepository(FutureUser::class)->find($id);
 
         if (!$futureUser) {
-            return $this->json('Future user not found');
+            return $this->json(array(
+                'success' => false,
+                'message' => 'Future user not found'
+            ));
         }
 
         if ($futureUser->isValidated()) {
-            return $this->json('User already validated');
+            return $this->json(array(
+                'success' => false,
+                'message' => 'User already validated'
+            ));
         }
 
         $futureUser->setValidated(true);
@@ -66,7 +75,10 @@ class InscriptionApiController extends AbstractController
         $entityManager->persist($user);
         $entityManager->flush();
 
-        return $this->json('User successfully validated');
+        return $this->json(array(
+            'succcess' => true,
+            'message' => 'User successfully validated',
+        ));
     }
 
     private function randomPassword($length = 15)

@@ -18,9 +18,13 @@ class UserApiController extends AbstractController
         $user = $this->getUser();
         return $this->json(
             [
-                'id' => $user->getId(),
-                'user' => $user->getUserIdentifier(),
-                'roles' => $user->getRoles()
+                'success' => true,
+                'data' => array(
+                    'id' => $user->getId(),
+                    'user' => $user->getUserIdentifier(),
+                    'roles' => $user->getRoles()
+                ),
+                'message' => 'User recovered'
             ]
         );
     }
@@ -31,7 +35,11 @@ class UserApiController extends AbstractController
         $entityManager = $doctrine->getManager();
         $users = $entityManager->getRepository(User::class)->findAll();
 
-        return $this->json($users);
+        return $this->json(array(
+            'success' => true,
+            'data' => $users,
+            'message' => 'Users recovered',
+        ));
     }
 
     #[Route('/check_role', methods: 'POST')]

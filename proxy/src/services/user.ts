@@ -30,8 +30,11 @@ const initUserService = (app: Express) => {
       .then((response) => {
         res.send(response.data);
       })
-      .catch((error) => {
-        res.send(error);
+      .catch(() => {
+        res.send({
+          success: false,
+          message: "Error during user registration",
+        });
       });
   });
 
@@ -49,8 +52,8 @@ const initUserService = (app: Express) => {
       .then((response) => {
         res.send(response.data);
       })
-      .catch((error) => {
-        res.send(error);
+      .catch(() => {
+        res.send({ success: false, message: "Error during user validation" });
       });
   });
 
@@ -114,13 +117,9 @@ const initUserService = (app: Express) => {
             } else {
               res.send({ success: false, message: "You are not an admin" });
             }
-          })
-          .catch((error) => {
-            res.send(error);
           });
       })
       .catch((error) => {
-        console.log(error);
         res.send({ success: false, message: "Invalid credentials" });
       });
   });
@@ -190,8 +189,8 @@ const initUserService = (app: Express) => {
       .then((response) => {
         res.send(response.data);
       })
-      .catch((error) => {
-        res.send(error);
+      .catch(() => {
+        res.send({ success: false, message: "Error during user check role" });
       });
   });
 };
