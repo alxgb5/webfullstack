@@ -19,5 +19,8 @@
   "devDependencies": {
     "ts-node": "^10.9.1"
   },
-  "type": "module"
+  "type": "module",
+  "dependencies": {
+    "typescript": "^4.9.4"
+  }
 }

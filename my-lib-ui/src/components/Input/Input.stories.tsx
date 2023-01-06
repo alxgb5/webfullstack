@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { ComponentStory, ComponentMeta } from "@storybook/react";
 import InputField from './Input';
 
@@ -7,10 +7,13 @@ export default {
     component: InputField,
 } as ComponentMeta<typeof InputField>;
 
-let value = '';
 
-export const InputFieldUI: ComponentStory<typeof InputField> = () => (
-    <div>
-        <InputField label='Input' onChange={(e) => { value = e.target.value; }} placeholder='Entrez une valeur' value={value} />
-    </div>
-);
+export const InputFieldUI: ComponentStory<typeof InputField> = () => {
+    const [value, setValue] = useState<string>('');
+
+    return (
+        <div>
+            <InputField label='Input' onChange={(e) => setValue(e.target.value)} placeholder='Entrez une valeur' value={value} />
+        </div>
+    )
+}
