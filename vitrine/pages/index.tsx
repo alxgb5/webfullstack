@@ -13,21 +13,30 @@ export default function Home() {
   const [firstname, setFirstname] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
-  const [nationality, setNationality] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setLoading(true);
 
     const user = {
-      "firstname": firstname,
-      "lastname": lastname,
-      "email": email,
-      "phone_number": phone,
-      "nationality": nationality
+      firstname: firstname,
+      lastname: lastname,
+      email: email,
+      phone_number: phone,
     }
 
     console.log("New user :", user);
 
+    fetch('http://localhost:8000/api/.user/inscription', { body: JSON.stringify(user), method: 'POST' })
+      .then((response) => {
+        console.log(response);
+        setLoading(false);
+
+      }).catch((error) => {
+        console.log(error);
+        setLoading(false);
+      })
 
     // Router.push('/register');
   }
@@ -48,19 +57,19 @@ export default function Home() {
 
             <div className='row'>
               <div className='group'>
-                <InputField label='Nom' onChange={(e) => console.log(e.target.value)} value={lastname} />
+                <InputField label='Nom' onChange={(e) => setLastname(e.target.value)} value={lastname} />
               </div>
               <div className='group'>
-                <InputField label='Prénom' />
+                <InputField label='Prénom' onChange={(e) => setFirstname(e.target.value)} value={firstname} />
               </div>
             </div>
 
             <div className='row'>
               <div className='group'>
-                <EmailField label='E-mail' value="" placeholder="" onChange={() => { }} />
+                <EmailField label='E-mail' value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
               <div className='group'>
-                <PhoneField label="Numéro de téléphone" placeholder='' onChange={() => { }} />
+                <PhoneField label="Numéro de téléphone" onChange={(e) => setPhone(e.target.value)} />
               </div>
             </div>
 
@@ -77,7 +86,7 @@ export default function Home() {
             </div>
 
             <div className='row-right'>
-              <UIButton className='submit-button' label='Demander mon inscription' color='primary' onClick={() => console.log('test')} />
+              <UIButton className='submit-button' label='Demander mon inscription' color='primary' onClick={() => console.log('test')} type={"submit"} />
             </div>
           </form>
         </CardComponent>
