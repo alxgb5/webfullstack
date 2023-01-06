@@ -13,6 +13,7 @@ export default function Home() {
   const [firstname, setFirstname] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
+  const [nationality, setNationality] = useState<string>('');
   const [checked, setChecked] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
@@ -24,7 +25,7 @@ export default function Home() {
       return;
     }
 
-    if (lastname === "" || firstname === "" || email === "" || phone === "") {
+    if (lastname === "" || firstname === "" || email === "" || phone === "" || nationality === "") {
       alert('Veuillez remplir tous les champs');
       return;
     }
@@ -34,6 +35,7 @@ export default function Home() {
       lastname: lastname,
       email: email,
       phone_number: phone,
+      nationality: nationality
     }
 
     console.log(user);
@@ -49,7 +51,7 @@ export default function Home() {
         console.log(response);
         setLoading(false);
 
-        // Router.push('/register');
+        Router.push('/register');
       }).catch((error) => {
         console.log(error);
         setLoading(false);
@@ -92,7 +94,7 @@ export default function Home() {
 
             <div className='row'>
               <div className='group'>
-                <SelectField label='Nationalité' placeholder='Sélectionner une valeur' options={['Francais', 'Anglais', 'Allemand', 'Espagnol']} />
+                <SelectField label='Nationalité' placeholder='Sélectionner une valeur' value={nationality} options={['Francais', 'Anglais', 'Allemand', 'Espagnol']} onChange={(e) => setNationality(e.target.value)} />
               </div>
             </div>
 
@@ -103,7 +105,7 @@ export default function Home() {
             </div>
 
             <div className='row-right'>
-              <UIButton className='submit-button' label='Demander mon inscription' color='primary' onClick={() => console.log('test')} type={"submit"} />
+              <UIButton className='submit-button' disabled={loading} label='Demander mon inscription' color='primary' onClick={() => console.log('test')} type={"submit"} />
             </div>
           </form>
         </CardComponent>

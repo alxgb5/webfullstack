@@ -4,23 +4,28 @@ export interface SelectFieldProps {
     label: string;
     placeholder?: string;
     value?: string;
-    options?: string[];
+    options: string[];
     disabled?: boolean;
-    onValueSelected?: (e: string) => void;
+    onChange: (event: React.ChangeEvent<HTMLSelectElement>) => void;
 }
 
 const SelectField = (props: SelectFieldProps) => {
-    const [showOptions, setShowOptions] = useState<boolean>(false);
-    const [selectedValue, setSelectedValue] = useState<string>('');
+    // const [showOptions, setShowOptions] = useState<boolean>(false);
+    // const [selectedValue, setSelectedValue] = useState<string>('');
     return (
         <div className='select-container'>
-            <div className='select-field-container' onClick={(e) => { console.log(e); setShowOptions(!showOptions); }}>
+            <div className='select-field-container'>
                 <p className='select-field-label'>{props.label}</p>
-                <select className='select-field' defaultValue={selectedValue} onChange={() => { }} >
-                    <option defaultValue={selectedValue} disabled hidden>{selectedValue ? selectedValue : (props.placeholder || 'Selectionnez une valeur')}</option>
+                <select className='select-field' onChange={(e) => props.onChange(e)} >
+                    <option selected value="">{props.placeholder || 'Selectionnez une valeur'}</option>
+                    {
+                        props.options.map((option, index) => {
+                            return <option key={index} value={option}>{option}</option>;
+                        })
+                    }
                 </select>
             </div>
-            {
+            {/* {
                 showOptions ?
                     <div className='options-container'>
                         <div className='options'>
@@ -31,7 +36,7 @@ const SelectField = (props: SelectFieldProps) => {
                     </div>
                     : <></>
             }
-            {selectedValue}
+            {selectedValue} */}
         </div>
     );
 };
