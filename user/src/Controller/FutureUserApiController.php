@@ -20,7 +20,7 @@ class FutureUserApiController extends AbstractController
 
         return $this->json(array(
             'success' => true,
-            'data' => $futureUsers,
+            'data' => array('futureUsers' => $futureUsers),
             'message' => 'Future users recovered',
         ));
     }

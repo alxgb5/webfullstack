@@ -37,7 +37,7 @@ class UserApiController extends AbstractController
 
         return $this->json(array(
             'success' => true,
-            'data' => $users,
+            'data' => array('users' => $users),
             'message' => 'Users recovered',
         ));
     }
