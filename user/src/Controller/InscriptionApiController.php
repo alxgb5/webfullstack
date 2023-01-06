@@ -23,7 +23,11 @@ class InscriptionApiController extends AbstractController
         $errors = $validator->validate($futureUser);
 
         if ($errors->count() > 0) {
-            return $this->json($errors);
+            return $this->json(array(
+                'success' => false,
+                'data' => $errors,
+                'message' => 'Errors during request validation',
+            ));
         }
 
         $entityManager = $doctrine->getManager();

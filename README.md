@@ -9,12 +9,12 @@ Projet commencé de zéro !
 ```bash
 cd proxy
 npm i
-cd .. 
+cd ..
 
 docker-compose up -d
 docker-compose exec user bash
 cp .env.exemple .env
-
+php bin/console lexik:jwt:generate-keypair
 composer install
 php bin/console doctrine:migrations:migrate
 php bin/console doctrine:fixtures:load

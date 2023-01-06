@@ -42,8 +42,9 @@ class UserApiController extends AbstractController
 
         if (!isset($data, $data['role'])) {
             return $this->json([
+                'success' => true,
                 'message' => 'Invalid role',
-            ], Response::HTTP_BAD_REQUEST);
+            ]);
         }
 
         $role = $data['role'];
