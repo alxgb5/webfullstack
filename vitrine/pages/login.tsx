@@ -4,6 +4,8 @@ import FooterComponent from '../components/FooterComponent';
 import Link from 'next/link';
 import { InputField, PasswordField, UIButton } from 'my-lib-ui';
 import { FormEvent, MouseEvent, useState } from 'react';
+import { GenericResponse } from '../types/generic-response';
+import Router from 'next/router';
 
 export default function Login() {
   const [username, setUsername] = useState<string>('');
@@ -18,8 +20,9 @@ export default function Login() {
       username: username,
       password: password,
     };
-    fetch('http://localhost:8000/api/.user/login', { body: JSON.stringify(user), method: 'POST' }).then((response) => {
-      console.log("🚀 ~ fetch ~ response", response);
+    fetch('http://localhost:8000/api/.user/login', { body: JSON.stringify(user), method: 'POST' }).then(async (response) => {
+      const parsedResponse: GenericResponse = await response.json();
+      console.log("🚀 ~ fetch ~ parsedResponse", parsedResponse);
       setLoading(false);
     }, (error) => {
       console.log("🚀 ~ fetch ~ error", error);
