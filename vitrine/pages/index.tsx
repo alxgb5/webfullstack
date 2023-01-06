@@ -36,13 +36,20 @@ export default function Home() {
       phone_number: phone,
     }
 
+    console.log(user);
     setLoading(true);
-    fetch('http://localhost:8000/api/.user/inscription', { body: JSON.stringify(user), method: 'POST' })
+    fetch('http://localhost:8000/api/.user/inscription', {
+      body: JSON.stringify(user),
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
       .then((response) => {
         console.log(response);
         setLoading(false);
 
-        Router.push('/register');
+        // Router.push('/register');
       }).catch((error) => {
         console.log(error);
         setLoading(false);
