@@ -6,6 +6,7 @@ import FooterComponent from '../components/FooterComponent'
 import { InputField, UIButton, EmailField, SelectField, PhoneField, RadioField, CheckboxField } from 'my-lib-ui'
 import { FormEvent, useState } from 'react'
 import Router from 'next/router'
+import { GenericResponse } from '../types/generic-response'
 
 export default function Home() {
 
@@ -47,8 +48,9 @@ export default function Home() {
         'Content-Type': 'application/json'
       }
     })
-      .then((response) => {
-        console.log(response);
+      .then(async (response) => {
+        const parsedResponse: GenericResponse = await response.json();
+        console.log(parsedResponse);
         setLoading(false);
 
         Router.push('/register');
