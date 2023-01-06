@@ -4,9 +4,7 @@ import '../Input/input.css';
 export interface PasswordFieldProps {
     label: string;
     placeholder?: string;
-
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
-
     value: string;
 }
 
@@ -17,7 +15,7 @@ const PasswordField = (props: PasswordFieldProps) => {
         <div>
             <div className='input-field-container'>
                 <p>{props.label}</p>
-                <input name={'password'} type={'password'} placeholder={props.placeholder || ''} value={props.value} onChange={(e) => { return e; }} />
+                <input name={'password'} type={'password'} placeholder={props.placeholder || ''} value={props.value} onChange={(e) => { props.onChange(e); }} />
                 <div className='line'></div>
             </div>
             {
