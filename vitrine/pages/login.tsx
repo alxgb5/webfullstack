@@ -5,13 +5,13 @@ import Link from 'next/link';
 import { InputField, PasswordField, UIButton } from 'my-lib-ui';
 import { FormEvent, MouseEvent, useState } from 'react';
 import { GenericResponse } from '../types/generic-response';
-import Router from 'next/router';
+import Router, { useRouter } from 'next/router';
 
 export default function Login() {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
-
+  const navigate = useRouter();
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     setLoading(true);
     e.preventDefault();
@@ -20,10 +20,21 @@ export default function Login() {
       username: username,
       password: password,
     };
-    fetch('http://localhost:8000/api/.user/login', { body: JSON.stringify(user), method: 'POST' }).then(async (response) => {
+
+    fetch('http://localhost:8000/api/.user/login/admin', {
+      body: JSON.stringify(user),
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+    }).then(async (response) => {
       const parsedResponse: GenericResponse = await response.json();
-      console.log("🚀 ~ fetch ~ parsedResponse", parsedResponse);
       setLoading(false);
+
+      if (parsedResponse.success && parsedResponse.data?.token) {
+        localStorage.setItem('ride_token', parsedResponse.data.token);
+        navigate.push('dashboard');
+      }
     }, (error) => {
       console.log("🚀 ~ fetch ~ error", error);
       setLoading(false);

@@ -1,5 +1,7 @@
 export type GenericResponse = {
     success: boolean,
-    data?: {},
+    data?: {
+        token?: string,
+    },
     message: string,
 };
