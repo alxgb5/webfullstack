@@ -98,6 +98,7 @@ const initUserService = (app: Express) => {
         }
       )
       .then((response) => {
+        const token = response.data.token;
         axios
           .post(
             `${baseUrl}/user/check_role`,
@@ -107,13 +108,17 @@ const initUserService = (app: Express) => {
             {
               headers: {
                 "Content-Type": "application/json",
-                Authorization: "Bearer " + response.data.token,
+                Authorization: "Bearer " + token,
               },
             }
           )
           .then((response) => {
             if (response.data.isAuthorized) {
-              res.send({ success: true, message: "Admin logged in" });
+              res.send({
+                success: true,
+                data: { token },
+                message: "Admin logged in",
+              });
             } else {
               res.send({ success: false, message: "You are not an admin" });
             }
