@@ -7,15 +7,18 @@ Projet commencé de zéro !
 ## Avec Docker
 
 ```bash
-docker-compose up -d
+cd proxy
+npm i
+cd .. 
 
+docker-compose up -d
 docker-compose exec user bash
+cp .env.exemple .env
+
 composer install
 php bin/console doctrine:migrations:migrate
-hp bin/console doctrine:fixtures:load
-
-docker-compose exec proxy bash
-npm install
+php bin/console doctrine:fixtures:load
+exit
 ```
 
 ## Installation
