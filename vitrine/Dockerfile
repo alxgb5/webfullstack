@@ -13,4 +13,4 @@ WORKDIR /app/vitrine
 
 RUN npm i && npm i ../my-lib-ui && npm run build
 
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "dev"]

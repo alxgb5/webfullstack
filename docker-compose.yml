@@ -58,6 +58,26 @@ services:
       - PMA_HOST=db
     networks:
       - app-network
+  
+  vitrine:
+    build:
+      context: ./
+      dockerfile: ./vitrine/Dockerfile
+    volumes:
+      - ./vitrine:/app/vitrine
+      - ./vitrine/node_modules:/app/vitrine/node_modules
+    ports:
+      - 3000:3000
+  
+  storybook:
+    build:
+      context: ./
+      dockerfile: ./my-lib-ui/Dockerfile
+    volumes:
+      - ./my-lib-ui:/app/my-lib-ui
+      - ./my-lib-ui/node_modules:/app/my-lib-ui/node_modules
+    ports:
+      - 6006:6006
 
 networks:
   app-network:

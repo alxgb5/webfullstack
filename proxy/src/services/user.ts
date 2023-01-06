@@ -69,10 +69,14 @@ const initUserService = (app: Express) => {
         }
       )
       .then((response) => {
-        res.send(response.data);
+        res.send({
+          success: true,
+          data: response.data,
+          message: "User logged in",
+        });
       })
       .catch(() => {
-        res.send("Invalid credentials");
+        res.send({ success: false, message: "Invalid credentials" });
       });
   });
 
