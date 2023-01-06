@@ -13,11 +13,21 @@ export default function Home() {
   const [firstname, setFirstname] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [phone, setPhone] = useState<string>('');
+  const [checked, setChecked] = useState<boolean>(false);
   const [loading, setLoading] = useState<boolean>(false);
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    setLoading(true);
+
+    if (!checked) {
+      alert('Vous devez attester de votre obtention du permis de conduire')
+      return;
+    }
+
+    if (lastname === "" || firstname === "" || email === "" || phone === "") {
+      alert('Veuillez remplir tous les champs');
+      return;
+    }
 
     const user = {
       firstname: firstname,
@@ -26,19 +36,19 @@ export default function Home() {
       phone_number: phone,
     }
 
-    console.log("New user :", user);
-
+    setLoading(true);
     fetch('http://localhost:8000/api/.user/inscription', { body: JSON.stringify(user), method: 'POST' })
       .then((response) => {
         console.log(response);
         setLoading(false);
 
+        Router.push('/register');
       }).catch((error) => {
         console.log(error);
         setLoading(false);
+        alert('Une erreur est survenue, veuillez réessayer plus tard')
       })
 
-    // Router.push('/register');
   }
 
   return (
@@ -81,7 +91,7 @@ export default function Home() {
 
             <div className='row'>
               <div className='group'>
-                <CheckboxField label={"J'atteste que je possède un permis de conduire valide."} checked={false} onChange={() => { }} />
+                <CheckboxField label={"J'atteste que je possède un permis de conduire valide."} checked={checked} onChange={(e) => setChecked(e.target.checked)} />
               </div>
             </div>
 
