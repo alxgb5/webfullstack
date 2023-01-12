@@ -8,6 +8,7 @@ import '../styles/Home.scss';
 import '../styles/Login.scss';
 import 'my-lib-ui/dist/main.css';
 import '../styles/Dashboard.scss';
+import '../styles/Loader.scss';
 import type { AppProps } from 'next/app';
 
 export default function App({ Component, pageProps }: AppProps) {
