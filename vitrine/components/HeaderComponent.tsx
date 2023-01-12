@@ -4,11 +4,11 @@ import { useEffect, useState } from 'react';
 
 const HeaderComponent: React.FC = () => {
 
-  const [token, setToken] = useState<string>('')
+  const [token, setToken] = useState<string>('');
 
   useEffect(() => {
     localStorage.getItem('ride_token') && setToken(localStorage.getItem('ride_token') as string);
-  })
+  });
 
 
   return (
@@ -19,7 +19,7 @@ const HeaderComponent: React.FC = () => {
         <p>RIDE</p>
       </div>
       {
-        token &&
+        !token &&
         <UIButton onClick={() => { Router.push('/login'); }} label={"Connexion admin"} color={"primary"}></UIButton>
       }
     </header>

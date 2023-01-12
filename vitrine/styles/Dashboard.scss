@@ -1,7 +1,53 @@
-.dashboard {
+.dashboard-body {
+    background-color: #F9F9F9;
+}
+
+.dashboard-container {
     display: flex;
     flex-direction: column;
+    height: calc(100vh - 160px - 72px);
     align-items: center;
-    justify-content: center;
+    width: 100%;
+    padding-top: 40px;
 
+    .content {
+        h1 {
+            width: 100%;
+            padding-bottom: 30px;
+        }
+    }
+
+    .tab {
+        width: 100%;
+        background-color: #ffffff;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 20px;
+        height: 40px;
+        padding: 10px;
+
+        .tab-btn {
+            background-color: transparent;
+            border-radius: 0;
+            border: 0 solid transparent;
+            padding: 0;
+            margin: 0;
+            transition: 0.3 ease-in-out;
+
+            &.current-tab {
+                font-weight: 800;
+                position: relative;
+            }
+
+            &.current-tab::before {
+                background-color: #C00000;
+                content: '';
+                height: 2px;
+                width: 30%;
+                position: absolute;
+                bottom: -4px;
+            }
+        }
+    }
 }

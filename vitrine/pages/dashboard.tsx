@@ -9,7 +9,7 @@ export default function Dashboard() {
     const [users, setUsers] = useState<{}[]>([]);
     const [futureUsers, setFutureUsers] = useState<any[]>([]);
     const [token, setToken] = useState<String>('');
-
+    const [currentTab, setCurrentTab] = useState<number>(0);
     useEffect(() => {
         localStorage.getItem('ride_token') && setToken(localStorage.getItem('ride_token') as String);
     }, []);
@@ -39,21 +39,35 @@ export default function Dashboard() {
     }, []);
 
     return (
-        <>
+        <div className='dashboard-body'>
             <HeadComponent />
             <HeaderComponent />
-            <div className='dashboard'>
-                <h1>GESTION BACK-OFFICE</h1>
-                <div style={{ padding: '3rem' }}>
-                    <h2>Utilisateur validés</h2>
-                    <TableComponent headers={["Status", "Nom / Prénom", "Coordonnées", "Nationalité", "Actions"]} rows={[{ status: "En attente", lastname: "Avagliano", firstname: "Enzo", mail: "eavagliano6@gmail.com", nationality: "Français" }]} />
-                </div>
-                <div style={{ padding: '3rem' }}>
-                    <h2>Utilisateur à valider</h2>
-                    <TableComponent headers={["id", "name", "lastname"]} rows={[{ id: '0', firstname: 'enzo', lastname: 'avagliano' }]} />
+            <div className='dashboard-container'>
+                <div className="content">
+                    <h1>GESTION BACK-OFFICE</h1>
+                    <div className='tab'>
+                        <button className={`tab-btn + ${currentTab == 0 ? ' current-tab' : ''} `} onClick={() => { setCurrentTab(0); }} key='users'>Liste des utilisateurs inscrits</button>
+                        <button className={`tab-btn + ${currentTab == 1 ? ' current-tab' : ''} `} onClick={() => { setCurrentTab(1); }} key='vehicles'>Liste des véhicules</button>
+                    </div>
+                    {currentTab === 0 ?
+                        <>
+                            <div >
+                                <h2>Utilisateur validés</h2>
+                                <TableComponent headers={["Status", "Nom / Prénom", "Coordonnées", "Nationalité", "Actions"]} rows={[{ status: "En attente", name: "AVAGLIANO Enzo", mail: "eavagliano6@gmail.com 0606060606", nationality: "Français", actions: 'Vérifier' }]} />
+                            </div>
+                        </>
+                        :
+                        <>
+                            <div >
+                                <h2>Utilisateur validés</h2>
+                                <TableComponent headers={["Marque", "Modèle", "Actions"]} rows={[{ marque: 'BMW', modele: 'I8', actions: 'Modifier' }]} />
+                            </div>
+                        </>
+                    }
+
                 </div>
             </div>
             <FooterComponent />
-        </>
+        </div>
     );
 }
