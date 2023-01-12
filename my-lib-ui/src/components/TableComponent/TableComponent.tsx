@@ -9,34 +9,28 @@ export interface TableProps {
 const TableComponent = (props: TableProps) => {
   return (
     <div className="table-container">
-      <table className="tg">
-        <thead>
-          <tr>
-            {
-              props.headers.map((header) => {
-                return <th className="tg-0lax">{header}</th>
-              })
-            }
-          </tr>
-        </thead>
-        <tbody>
-          {
-            props.rows.map((row, index) => {
-              return (
-                <tr key={`row-${index}`}>
-                  {
-                    props.headers.map((header, headerIndex) => {
-                      return (
-                        <td className="tg-0lax" key={`row-${index}-cell-${index}`}>{Object.values(row)[headerIndex] as ReactNode}</td>
-                      )
-                    })
-                  }
-                </tr>
-              )
-            })
-          }
-        </tbody>
-      </table>
+      <div className="table-header">
+        {
+          props.headers.map((header) => {
+            return <div className="table-header-cell">{header}</div>
+          })
+        }
+      </div>
+      {
+        props.rows.map((row, index) => {
+          return (
+            <div key={`row-${index}`} className="table-row">
+              {
+                props.headers.map((header, headerIndex) => {
+                  return (
+                    <div className="table-row-cell" key={`row-${index}-cell-${index}`}>{Object.values(row)[headerIndex] as ReactNode}</div>
+                  )
+                })
+              }
+            </div>
+          )
+        })
+      }
     </div>
   )
 }

@@ -1,29 +1,35 @@
-.tg  {
-  border-collapse:collapse;
-  border-spacing:0;
+.table-container{
+  width: 100%;
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
 }
-.tg td{
-  border-color:black;
-  border-style:solid;
-  border-width:1px;
-  font-family:Arial, sans-serif;
-  font-size:14px;
-  overflow:hidden;
-  padding:10px 5px;
-  word-break:normal;
+
+.table-container .table-header{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #e0e0e0;
 }
-.tg th{
-  border-color:black;
-  border-style:solid;
-  border-width:1px;
-  font-family:Arial, sans-serif;
-  font-size:14px;
-  font-weight:normal;
-  overflow:hidden;
-  padding:10px 5px;
-  word-break:normal;
+
+.table-container .table-header .table-header-cell{
+  min-width: 210px;
+  width: auto;
+  padding: 10px;
 }
-.tg .tg-0lax{
-  text-align:left;
-  vertical-align:top
+
+.table-container .table-row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid #e0e0e0;
+}
+
+.table-container .table-row .table-row-cell{
+  min-width: 210px;
+  width: auto;
+  padding: 10px;
 }
