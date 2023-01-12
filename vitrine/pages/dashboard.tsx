@@ -4,6 +4,7 @@ import { useEffect, useState } from 'react';
 import FooterComponent from '../components/FooterComponent';
 import HeadComponent from '../components/HeadComponent';
 import HeaderComponent from '../components/HeaderComponent';
+import { LoaderComponent } from '../components/Loader';
 import { GenericResponse } from '../types/generic-response';
 import { FutureUsers, Users, UserTableWrapper } from '../types/users';
 
@@ -14,14 +15,14 @@ export default function Dashboard() {
     const [token, setToken] = useState<string>('');
     const [currentTab, setCurrentTab] = useState<number>(0);
     const [users, setUsers] = useState<UserTableWrapper[]>([]);
-
+    const [loading, setLoading] = useState<boolean>(false);
+    const [refresh, setRefresh] = useState<boolean>(false);
     useEffect(() => {
         const item = localStorage.getItem('ride_token');
         setToken(item as string);
     }, []);
 
     useEffect(() => {
-
         console.log("🚀 ~ useEffect ~ token", token);
 
         fetch('/api/.user/users', {
@@ -53,36 +54,39 @@ export default function Dashboard() {
             }).catch((error) => {
                 console.log("🚀 ~ .then ~ error", error);
             });
-    }, []);
+    }, [refresh]);
 
     useEffect(() => {
+        setLoading(true);
         if (!tempUsers?.length && !tempFutureUsers?.length)
             return;
 
         const tempData = [] as UserTableWrapper[];
 
         for (const tempUser of tempUsers) {
-            tempData.push({ id: tempUser.id, username: tempUser.username, userIdentifier: tempUser.userIdentifier, action: <UIButton label='Valider' color='dark' onClick={() => { validateUser(tempUser.id); }}></UIButton> });
+            tempData.push({ statut: '✅ Validé', username: tempUser.username, userIdentifier: tempUser.userIdentifier, nationality: tempUser.futureUser?.nationality || 'n/a', action: <UIButton label='Editer' color='dark' onClick={() => { }}></UIButton> });
         }
 
         for (const tempFuturUser of tempFutureUsers) {
-            tempData.push({ id: tempFuturUser.id, username: tempFuturUser.lastname + ' ' + tempFuturUser.firstname, userIdentifier: tempFuturUser.email, action: <UIButton label='Valider' color='dark' onClick={() => { validateUser(tempFuturUser.id); }}></UIButton> });
+            tempData.push({ statut: '⚠️ En Attente', username: tempFuturUser.lastname + ' ' + tempFuturUser.firstname, userIdentifier: tempFuturUser.email, nationality: tempFuturUser.nationality, action: <UIButton label='Vérifier' color='primary' onClick={() => { validateUser(tempFuturUser.id); }}></UIButton> });
         }
 
         setUsers(tempData);
-    }, [tempUsers, tempFutureUsers]);
+        setLoading(false);
+    }, [tempUsers, tempFutureUsers, refresh]);
 
     function validateUser(id: string) {
-        fetch(`http://localhost:8000/api/.user/validate-user/${id}`, {
+        fetch(`/api/.user/validate-user/${id}`, {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${localStorage.getItem('ride_token')}`
             },
         }).then(async (response) => {
             const parsedResponse: GenericResponse = await response.json();
 
             if (parsedResponse.success && parsedResponse.data) {
-                console.log('success');
+                setRefresh(!refresh);
             }
         }, (error) => {
             console.log("🚀 ~ fetch ~ error", error);
@@ -100,16 +104,20 @@ export default function Dashboard() {
                         <button className={`tab-btn + ${currentTab == 0 ? ' current-tab' : ''} `} onClick={() => { setCurrentTab(0); }} key='users'>Liste des utilisateurs inscrits</button>
                         <button className={`tab-btn + ${currentTab == 1 ? ' current-tab' : ''} `} onClick={() => { setCurrentTab(1); }} key='vehicles'>Liste des véhicules</button>
                     </div>
-                    {currentTab === 0 ?
-                        <div className="dashboard-table-container">
-                            <TableComponent headers={["Status", "Nom / Prénom", "Coordonnées", "Nationalité", "Actions"]} rows={users} />
-                        </div>
-                        :
-                        <div className="dashboard-table-container">
-                            <TableComponent headers={["Marque", "Modèle", "Actions"]} rows={[{ marque: 'BMW', modele: 'I8', actions: 'Modifier' }]} />
-                        </div>
-                    }
+                    {
+                        loading ?
+                            <LoaderComponent />
+                            :
+                            currentTab === 0 ?
+                                <div className="dashboard-table-container">
+                                    <TableComponent headers={["Status", "Nom / Prénom", "Coordonnées", "Nationalité", "Actions"]} rows={users} />
+                                </div>
+                                :
+                                <div className="dashboard-table-container">
+                                    <TableComponent headers={["Marque", "Modèle", "Actions"]} rows={[{ marque: 'BMW', modele: 'I8', actions: 'Modifier' }]} />
+                                </div>
 
+                    }
                 </div>
             </div>
             <FooterComponent />

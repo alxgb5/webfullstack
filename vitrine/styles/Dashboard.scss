@@ -5,10 +5,11 @@
 .dashboard-container {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - 160px - 72px);
+    min-height: calc(100vh - 160px - 72px);
     align-items: center;
     width: 100%;
     padding-top: 40px;
+    padding-bottom: 40px;
 
     .content {
         h1 {
@@ -17,8 +18,7 @@
         }
     }
 
-    .dashboard-table-container{
-        width: 60vw;
+    .dashboard-table-container {
         margin-top: 2rem;
     }
 

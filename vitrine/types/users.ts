@@ -17,8 +17,9 @@ export interface FutureUsers {
     email: string;
 }
 export interface UserTableWrapper {
-    id: string,
+    statut: string,
     username: string,
     userIdentifier: string,
+    nationality: string,
     action: any;
 }
