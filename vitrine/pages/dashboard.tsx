@@ -16,8 +16,8 @@ export default function Dashboard() {
     const [users, setUsers] = useState<UserTableWrapper[]>([]);
 
     useEffect(() => {
-        console.log("🚀 ~ useEffect ~ localStorage.getItem('ride_token')", localStorage.getItem('ride_token'));
-        setToken(localStorage.getItem('ride_token') as string);
+        const item = localStorage.getItem('ride_token');
+        setToken(item as string);
     }, []);
 
     useEffect(() => {
