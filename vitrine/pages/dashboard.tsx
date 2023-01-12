@@ -1,6 +1,5 @@
 import { TableComponent } from 'my-lib-ui';
 import { useEffect, useState } from 'react';
-import { setTokenSourceMapRange } from 'typescript';
 import FooterComponent from '../components/FooterComponent';
 import HeadComponent from '../components/HeadComponent';
 import HeaderComponent from '../components/HeaderComponent';
@@ -24,7 +23,7 @@ export default function Dashboard() {
                         setUsers(parsedResponse.data.users);
                     }
                 }).catch((error) => {
-                    alert(error);
+                    console.log("🚀 ~ .then ~ error", error);
                 });
 
             fetch('http://localhost:8000/api/.user/future-users')
@@ -34,7 +33,7 @@ export default function Dashboard() {
                         setFutureUsers(parsedResponse.data.futureUsers);
                     }
                 }).catch((error) => {
-                    alert(error);
+                    console.log("🚀 ~ .then ~ error", error);
                 });
         }
     }, []);
@@ -43,17 +42,18 @@ export default function Dashboard() {
         <>
             <HeadComponent />
             <HeaderComponent />
-            <h1> Welcome on Ride Dashboard</h1>
-            <div style={{ padding: '3rem' }}>
-                <h2>Utilisateur validés</h2>
-                <TableComponent headers={["id", "name", "lastname"]} rows={[{ id: '0', firstname: 'enzo', lastname: 'avagliano' }]} />
-            </div>
-            <div style={{ padding: '3rem' }}>
-                <h2>Utilisateur à valider</h2>
-                <TableComponent headers={["id", "name", "lastname"]} rows={[{ id: '0', firstname: 'enzo', lastname: 'avagliano' }]} />
+            <div className='dashboard'>
+                <h1>GESTION BACK-OFFICE</h1>
+                <div style={{ padding: '3rem' }}>
+                    <h2>Utilisateur validés</h2>
+                    <TableComponent headers={["id", "name", "lastname"]} rows={[{ id: '0', firstname: 'enzo', lastname: 'avagliano' }]} />
+                </div>
+                <div style={{ padding: '3rem' }}>
+                    <h2>Utilisateur à valider</h2>
+                    <TableComponent headers={["id", "name", "lastname"]} rows={[{ id: '0', firstname: 'enzo', lastname: 'avagliano' }]} />
+                </div>
             </div>
             <FooterComponent />
-
         </>
     );
 }
