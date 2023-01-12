@@ -1,7 +1,16 @@
 import { UIButton } from 'my-lib-ui';
 import Router from 'next/router';
+import { useEffect, useState } from 'react';
 
 const HeaderComponent: React.FC = () => {
+
+  const [token, setToken] = useState<string>('')
+
+  useEffect(() => {
+    localStorage.getItem('ride_token') && setToken(localStorage.getItem('ride_token') as string);
+  })
+
+
   return (
     <header className="header">
       <div className="left">
@@ -10,9 +19,8 @@ const HeaderComponent: React.FC = () => {
         <p>RIDE</p>
       </div>
       {
-        !localStorage.getItem('ride_token') ?
-          <UIButton onClick={() => { Router.push('/login'); }} label={"Connexion admin"} color={"primary"}></UIButton>
-          : <></>
+        token &&
+        <UIButton onClick={() => { Router.push('/login'); }} label={"Connexion admin"} color={"primary"}></UIButton>
       }
     </header>
   );

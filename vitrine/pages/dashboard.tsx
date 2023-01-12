@@ -46,7 +46,7 @@ export default function Dashboard() {
                 <h1>GESTION BACK-OFFICE</h1>
                 <div style={{ padding: '3rem' }}>
                     <h2>Utilisateur validés</h2>
-                    <TableComponent headers={["id", "name", "lastname"]} rows={[{ id: '0', firstname: 'enzo', lastname: 'avagliano' }]} />
+                    <TableComponent headers={["Status", "Nom / Prénom", "Coordonnées", "Nationalité", "Actions"]} rows={[{ status: "En attente", lastname: "Avagliano", firstname: "Enzo", mail: "eavagliano6@gmail.com", nationality: "Français" }]} />
                 </div>
                 <div style={{ padding: '3rem' }}>
                     <h2>Utilisateur à valider</h2>
