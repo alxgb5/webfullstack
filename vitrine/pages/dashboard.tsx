@@ -24,10 +24,10 @@ export default function Dashboard() {
 
         console.log("🚀 ~ useEffect ~ token", token);
 
-        fetch('http://localhost:8000/api/.user/users', {
+        fetch('/api/.user/users', {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${localStorage.getItem('ride_token')}`
+                'Authorization': `Bearer ${localStorage.getItem('ride_token')}`,
             }
         })
             .then(async (response) => {
@@ -39,10 +39,10 @@ export default function Dashboard() {
                 console.log("🚀 ~ .then ~ error", error);
             });
 
-        fetch('http://localhost:8000/api/.user/future-users', {
+        fetch('/api/.user/future-users', {
             method: 'GET',
             headers: {
-                'Authorization': `Bearer ${token}`
+                'Authorization': `Bearer ${localStorage.getItem('ride_token')}`
             }
         })
             .then(async (response) => {

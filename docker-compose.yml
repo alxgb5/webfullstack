@@ -68,6 +68,8 @@ services:
       - ./vitrine/node_modules:/app/vitrine/node_modules
     ports:
       - 3000:3000
+    networks:
+      - app-network
   
   storybook:
     build:

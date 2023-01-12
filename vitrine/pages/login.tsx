@@ -21,7 +21,7 @@ export default function Login() {
       password: password,
     };
 
-    fetch('http://localhost:8000/api/.user/login/admin', {
+    fetch('/api/.user/login/admin', {
       body: JSON.stringify(user),
       method: 'POST',
       headers: {
