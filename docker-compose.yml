@@ -1,6 +1,5 @@
 version: "3.8"
 services:
-  # PHP service
   user:
     build: ./user
     container_name: service-user
@@ -8,6 +7,19 @@ services:
     volumes:
       - ./user:/var/www
       - ./user/vendor:/var/www/vendor
+    networks:
+      - app-network
+
+  car:
+    build: ./car
+    container_name: service-car
+    working_dir: /var/www
+    volumes:
+      - ./car:/var/www
+    ports:
+      - 5050:5000
+    environment:
+      FLASK_DEBUG: True
     networks:
       - app-network
 
