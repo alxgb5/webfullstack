@@ -1,5 +1,6 @@
 import { TableComponent, UIButton } from 'my-lib-ui';
 import { setLazyProp } from 'next/dist/server/api-utils';
+import Router from 'next/router';
 import { useEffect, useState } from 'react';
 import FooterComponent from '../components/FooterComponent';
 import HeadComponent from '../components/HeadComponent';
@@ -12,18 +13,18 @@ export default function Dashboard() {
 
     const [tempUsers, setTempUsers] = useState<Users[]>([]);
     const [tempFutureUsers, setTempFutureUsers] = useState<FutureUsers[]>([]);
-    const [token, setToken] = useState<string>('');
     const [currentTab, setCurrentTab] = useState<number>(0);
     const [users, setUsers] = useState<UserTableWrapper[]>([]);
     const [loading, setLoading] = useState<boolean>(false);
     const [refresh, setRefresh] = useState<boolean>(false);
+
     useEffect(() => {
-        const item = localStorage.getItem('ride_token');
-        setToken(item as string);
+        if (!localStorage.getItem('ride_token')) {
+            Router.push('/login');
+        }
     }, []);
 
     useEffect(() => {
-        console.log("🚀 ~ useEffect ~ token", token);
 
         fetch('/api/.user/users', {
             method: 'GET',
@@ -84,8 +85,9 @@ export default function Dashboard() {
             },
         }).then(async (response) => {
             const parsedResponse: GenericResponse = await response.json();
+            console.log("🚀 ~ validateUser ~ parsedResponse", parsedResponse);
 
-            if (parsedResponse.success && parsedResponse.data) {
+            if (parsedResponse.success) {
                 setRefresh(!refresh);
             }
         }, (error) => {

@@ -76,7 +76,7 @@ class InscriptionApiController extends AbstractController
         $entityManager->flush();
 
         return $this->json(array(
-            'succcess' => true,
+            'success' => true,
             'message' => 'User successfully validated',
         ));
     }
