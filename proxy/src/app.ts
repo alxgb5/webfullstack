@@ -1,7 +1,8 @@
 import express from "express";
 import bodyParser from "body-parser";
-import checkToken from "./checkToken";
+import checkToken from "./middlewares/checkToken";
 import initUserService from "./services/user";
+import initCarService from "./services/car";
 import cors from "cors";
 
 const app = express();
@@ -22,6 +23,7 @@ app.use(
 );
 
 initUserService(app);
+initCarService(app);
 
 app.listen(port, () => {
   return console.log(`Express is listening at http://localhost:${port}`);

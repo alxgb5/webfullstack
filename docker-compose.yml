@@ -16,8 +16,6 @@ services:
     working_dir: /var/www
     volumes:
       - ./car:/var/www
-    ports:
-      - 5050:5000
     environment:
       FLASK_DEBUG: True
     networks:
