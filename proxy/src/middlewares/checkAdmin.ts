@@ -1,8 +1,6 @@
 import axios from "axios";
 import { Request, Response } from "express";
 
-const adminRoutes = ["/api/.car/cars"];
-
 export default module.exports = () => {
   return (req: Request, res: Response, next: () => void) => {
     if (
