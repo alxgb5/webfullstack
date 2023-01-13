@@ -31,6 +31,8 @@ services:
       - app-network
     ports:
       - 8000:8000
+    depends_on:
+      - user
 
   # MySQL database service
   db:

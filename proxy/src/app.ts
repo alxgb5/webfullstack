@@ -4,6 +4,7 @@ import checkToken from "./middlewares/checkToken";
 import initUserService from "./services/user";
 import initCarService from "./services/car";
 import cors from "cors";
+import checkAdmin from "./middlewares/checkAdmin";
 
 const app = express();
 const port = 8000;
@@ -15,6 +16,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 
 app.use(checkToken());
+app.use(checkAdmin());
 
 app.use(
   cors({
