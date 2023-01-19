@@ -4,7 +4,7 @@ import json
 
 
 def sendResponse(status=True, data=None, message=""):
-    return jsonify({'status': status, 'data': data, 'message': message})
+    return jsonify({'success': status, 'data': data, 'message': message})
 
 
 def index():
