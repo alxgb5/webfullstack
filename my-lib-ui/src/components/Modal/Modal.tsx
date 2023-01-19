@@ -1,4 +1,5 @@
 import React from 'react';
+import UIButton from '../UIButton';
 import './modal.css';
 
 export interface ModalProps {
@@ -15,7 +16,9 @@ const Modal = (props: ModalProps) => {
       <div className="centered">
         <div className="modal">
           {props.children}
-          <button className="closeBtn" onClick={() => props.setIsOpen(false)}>Fermer</button>
+          <div style={{ marginTop: '40px' }}>
+            <UIButton className="closeBtn" label='Fermer' color='primary' onClick={() => props.setIsOpen(false)} />
+          </div>
         </div>
       </div>
     </>
