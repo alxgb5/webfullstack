@@ -14,7 +14,7 @@ export default function Dashboard() {
 
 	const [tempUsers, setTempUsers] = useState<Users[]>([]);
 	const [tempFutureUsers, setTempFutureUsers] = useState<FutureUsers[]>([]);
-	const [tempCars, setTempCars] = useState<Car[]>([])
+	const [tempCars, setTempCars] = useState<Car[]>([]);
 	const [cars, setCars] = useState<Car[]>([]);
 	const [currentTab, setCurrentTab] = useState<number>(0);
 	const [users, setUsers] = useState<UserTableWrapper[]>([]);
@@ -96,7 +96,7 @@ export default function Dashboard() {
 		}
 
 		for (const tempCar of tempCars) {
-			tempDataCars.push({ id: tempCar.id, img_url: tempCar.img_url, name: tempCar.name, price: tempCar.price, action: <UIButton label='Suprimer' color='primary' onClick={() => handleDeleteCar(tempCar.id)}></UIButton> })
+			tempDataCars.push({ id: tempCar.id, img_url: <img src={tempCar.img_url} style={{ width: 200, height: 200, objectFit: 'contain' }} />, name: tempCar.name, price: tempCar.price + '€', action: <UIButton label='Suprimer' color='primary' onClick={() => handleDeleteCar(tempCar.id)}></UIButton> });
 		}
 
 		setUsers(tempData);
@@ -139,7 +139,7 @@ export default function Dashboard() {
 		}, (error) => {
 			console.log("🚀 ~ delete ~ error", error);
 		});
-	}
+	};
 
 	return (
 		<div className='dashboard-body'>

@@ -3,13 +3,13 @@ export interface Car {
     name: string,
     img_url: string,
     price: number,
-    action: any
+    action: any;
 }
 
 export interface CarsWrapper {
     id: string,
     name: string,
-    img_url: string,
-    price: number,
-    action: any
+    img_url: any,
+    price: string,
+    action: any;
 }
