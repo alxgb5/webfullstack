@@ -1,3 +1,5 @@
+import '../styles/BannerComponent.scss';
+
 const BannerComponent: React.FC = () => {
   return (
     <section className="banner">
@@ -8,7 +10,7 @@ const BannerComponent: React.FC = () => {
         <hr className="divider" />
       </div>
     </section>
-  )
-}
+  );
+};
 
 export default BannerComponent;

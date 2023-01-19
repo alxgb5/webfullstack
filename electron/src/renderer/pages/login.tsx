@@ -1,4 +1,3 @@
-import HeadComponent from '../components/HeadComponent';
 import HeaderComponent from '../components/HeaderComponent';
 import FooterComponent from '../components/FooterComponent';
 import { InputField, PasswordField, UIButton } from 'my-lib-ui';
@@ -43,7 +42,6 @@ export default function Login() {
 
   return (
     <div>
-      <HeadComponent />
 
       <HeaderComponent />
 

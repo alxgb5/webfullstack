@@ -1,13 +1,11 @@
-import HeadComponent from '../components/HeadComponent';
 import HeaderComponent from '../components/HeaderComponent';
-import CardComponent from '../components/CardComponent'
+import CardComponent from '../components/CardComponent';
 import BannerComponent from '../components/BannerComponent';
 import FooterComponent from '../components/FooterComponent';
 
 export default function Register() {
   return (
     <div>
-      <HeadComponent />
 
       <HeaderComponent />
 
@@ -26,5 +24,5 @@ export default function Register() {
 
       <FooterComponent />
     </div>
-  )
+  );
 }

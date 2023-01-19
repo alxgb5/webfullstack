@@ -5,7 +5,6 @@ import { Car, CarsWrapper } from '../../types/cars';
 import { GenericResponse } from '../../types/generic-response';
 import { FutureUsers, Users, UserTableWrapper } from '../../types/users';
 import FooterComponent from '../components/FooterComponent';
-import HeadComponent from '../components/HeadComponent';
 import HeaderComponent from '../components/HeaderComponent';
 import { LoaderComponent } from '../components/Loader';
 
@@ -180,7 +179,6 @@ export default function Dashboard() {
 
 	return (
 		<div className='dashboard-body'>
-			<HeadComponent />
 			<HeaderComponent />
 			<div className='dashboard-container'>
 				<div className="content">
