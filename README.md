@@ -56,6 +56,14 @@ $ cd my-lib-ui
 $ npm run storybook
 ```
 
+## Run Electron
+```bash
+$ cd electron
+$ npm i --depth 1
+$ cd ..
+$ npm run lib:init
+```
+
 ## Run Jest Testing
 
 ```bash
