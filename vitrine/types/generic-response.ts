@@ -4,6 +4,7 @@ export type GenericResponse = {
         token?: string,
         users?: {}[],
         futureUsers?: {}[],
+        cars?: {}[],
     },
     message: string,
 };
