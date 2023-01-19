@@ -23,6 +23,7 @@ const initCarService = (app: Express) => {
         {
           name: req.body.name,
           img_url: req.body.img_url,
+          price: req.body.price,
         },
         {
           headers: {
@@ -42,6 +43,7 @@ const initCarService = (app: Express) => {
         {
           name: req.body.name,
           img_url: req.body.img_url,
+          price: req.body.price,
         },
         {
           headers: {

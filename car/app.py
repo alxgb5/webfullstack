@@ -1,5 +1,5 @@
 from flask import Flask
-from models.Car import db
+from models.Connection import db
 from controllers import CarController
 
 app = Flask(__name__)

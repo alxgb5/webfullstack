@@ -12,6 +12,8 @@ npm i
 cd ..
 
 docker-compose up -d
+
+# User service
 docker-compose exec user bash
 cp .env.exemple .env
 php bin/console lexik:jwt:generate-keypair
@@ -19,6 +21,9 @@ composer install
 php bin/console doctrine:migrations:migrate
 php bin/console doctrine:fixtures:load
 exit
+
+# Car service
+docker-compose exec car python3 fixtures.py
 ```
 
 ## Installation
