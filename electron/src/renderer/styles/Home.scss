@@ -1,0 +1,46 @@
+.register {
+  .row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    column-gap: 24px;
+    padding: 8px 0;
+  }
+
+  .row-right {
+    display: flex;
+    width: 100%;
+    justify-content: flex-end;
+
+    .ui-btn {
+      width: 50%;
+      margin-right: 0;
+    }
+  }
+
+  .group {
+    flex-basis: 50%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .register {
+    .row {
+      flex-direction: column;
+      row-gap: 24px;
+    }
+
+    .submit-button{
+      width: 100% !important;
+      margin-top: 40px;
+    }
+
+    .row-right {
+      justify-content: center;
+    }
+
+    .group {
+      flex-basis: 100%;
+    }
+  }
+}

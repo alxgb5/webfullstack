@@ -1,0 +1,21 @@
+.footer {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ui-black);
+  color: var(--ui-white) !important;
+
+  a {
+    text-decoration: underline;
+    margin: 12px 0 12px 83px;
+  }
+
+  a:nth-child(1) {
+    margin-top: 24px;
+  }
+
+  p {
+    text-align: center;
+    margin-top: 12px;
+    margin-bottom: 28px;
+  }
+}

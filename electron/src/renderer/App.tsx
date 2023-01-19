@@ -1,10 +1,28 @@
+import { CheckboxField, EmailField, InputField, PhoneField, RadioField, SelectField, UIButton } from 'my-lib-ui';
 import { FormEvent, useState } from 'react';
 import { MemoryRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
-import icon from '../../assets/icon.svg';
+import { GenericResponse } from '../types/generic-response';
 import './App.css';
-import Test from './pages/Test';
+import BannerComponent from './components/BannerComponent';
+import CardComponent from './components/CardComponent';
+import FooterComponent from './components/FooterComponent';
+import HeaderComponent from './components/HeaderComponent';
 
+
+import './styles/globals.scss';
+import './styles/HeaderComponent.scss';
+import './styles/FooterComponent.scss';
+import './styles/BannerComponent.scss';
+import './styles/CardComponent.scss';
+import './styles/RegisterComponent.scss';
+import './styles/Home.scss';
+import './styles/Login.scss';
+import 'my-lib-ui/dist/main.css';
+import './styles/Dashboard.scss';
+import './styles/Loader.scss';
 export const Home = () => {
+
+  const navigate = useNavigate();
 
   const [lastname, setLastname] = useState<string>('');
   const [firstname, setFirstname] = useState<string>('');
@@ -18,7 +36,7 @@ export const Home = () => {
     e.preventDefault();
 
     if (!checked) {
-      alert('Vous devez attester de votre obtention du permis de conduire')
+      alert('Vous devez attester de votre obtention du permis de conduire');
       return;
     }
 
@@ -33,7 +51,7 @@ export const Home = () => {
       email: email,
       phone_number: phone,
       nationality: nationality
-    }
+    };
 
     console.log(user);
     setLoading(true);
@@ -49,23 +67,22 @@ export const Home = () => {
         console.log(parsedResponse);
         setLoading(false);
 
-        Router.push('/register');
+        navigate('/register');
       }).catch((error) => {
         console.log(error);
         setLoading(false);
-        alert('Une erreur est survenue, veuillez réessayer plus tard')
-      })
+        alert('Une erreur est survenue, veuillez réessayer plus tard');
+      });
 
-  }
+  };
 
   return (
     <div>
-      <HeadComponent />
       <HeaderComponent />
       <main>
         <BannerComponent />
         <CardComponent title={"Inscription"}>
-          <form className='register' onSubmit={(e) => { handleSubmit(e) }}>
+          <form className='register' onSubmit={(e) => { handleSubmit(e); }}>
             <div className='row'>
               <div className='group'>
                 <RadioField titre='Je suis' onChange={(e) => console.log(e.target.value)} />
@@ -111,8 +128,8 @@ export const Home = () => {
 
       <FooterComponent />
     </div>
-  )
-}
+  );
+};
 
 
 export default function App() {
@@ -120,7 +137,6 @@ export default function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/test" element={<Test />} />
       </Routes>
     </Router>
   );
