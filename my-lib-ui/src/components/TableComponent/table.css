@@ -33,3 +33,7 @@
   width: auto;
   padding: 10px;
 }
+
+img{
+  max-height: 10vh
+}

@@ -23,7 +23,14 @@ const TableComponent = (props: TableProps) => {
               {
                 props.headers.map((header, headerIndex) => {
                   return (
-                    <div className="table-row-cell" key={`row-${index}-cell-${index}`}>{Object.values(row)[headerIndex] as ReactNode}</div>
+                    <div className="table-row-cell" key={`row-${index}-cell-${headerIndex}`}>
+                      {
+                        header.toLowerCase() === 'image' ?
+                          <img src={Object.values(row)[headerIndex] as string} alt="" />
+                          :
+                          <p>{Object.values(row)[headerIndex] as ReactNode}</p>
+                      }
+                    </div>
                   )
                 })
               }

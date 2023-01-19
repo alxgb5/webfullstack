@@ -1,15 +1,15 @@
 export interface Car {
     id: string,
-    marque: string,
-    image: string,
+    name: string,
+    img_url: string,
     price: number,
     action: any
 }
 
 export interface CarsWrapper {
     id: string,
-    marque: string,
-    image: string,
+    name: string,
+    img_url: string,
     price: number,
     action: any
 }

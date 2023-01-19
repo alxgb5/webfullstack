@@ -96,7 +96,7 @@ export default function Dashboard() {
 		}
 
 		for (const tempCar of tempCars) {
-			tempDataCars.push({ id: tempCar.id, marque: tempCar.marque, image: tempCar.image, price: tempCar.price, action: <UIButton label='Vérifier' color='primary' onClick={() => { console.log(tempCar.id) }}></UIButton> })
+			tempDataCars.push({ id: tempCar.id, img_url: tempCar.img_url, name: tempCar.name, price: tempCar.price, action: <UIButton label='Suprimer' color='primary' onClick={() => handleDeleteCar(tempCar.id)}></UIButton> })
 		}
 
 		setUsers(tempData);
@@ -120,6 +120,24 @@ export default function Dashboard() {
 			}
 		}, (error) => {
 			console.log("🚀 ~ fetch ~ error", error);
+		});
+	}
+
+	const handleDeleteCar = (carId: string) => {
+		fetch(`/api/.car/cars/${carId}`, {
+			method: 'DELETE',
+			headers: {
+				'Authorization': `Bearer ${localStorage.getItem('ride_token')}`
+			},
+		}).then(async (response) => {
+			const parsedResponse: GenericResponse = await response.json();
+			console.log("🚀 ~ delete car ~ parsedResponse", parsedResponse);
+
+			if (parsedResponse.success) {
+				setRefresh(!refresh);
+			}
+		}, (error) => {
+			console.log("🚀 ~ delete ~ error", error);
 		});
 	}
 
