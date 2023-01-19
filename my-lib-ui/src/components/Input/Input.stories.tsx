@@ -13,7 +13,7 @@ export const InputFieldUI: ComponentStory<typeof InputField> = () => {
 
     return (
         <div>
-            <InputField label='Input' onChange={(e) => setValue(e.target.value)} placeholder='Entrez une valeur' value={value} />
+            <InputField type="text" label='Input' onChange={(e) => setValue(e.target.value)} placeholder='Entrez une valeur' value={value} />
         </div>
     )
 }

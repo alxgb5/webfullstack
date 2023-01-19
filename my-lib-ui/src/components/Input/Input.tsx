@@ -6,6 +6,7 @@ export interface InputFieldProps {
     placeholder?: string;
     onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
     value?: string;
+    type?: string;
 }
 
 
@@ -14,7 +15,7 @@ const InputField = (props: InputFieldProps) => {
     return (
         <div className='input-field-container'>
             <p>{props.label}</p>
-            <input type={'text'} placeholder={props.placeholder || ''} onChange={(e) => props.onChange(e)} value={props.value} />
+            <input type={props.type || 'text'} placeholder={props.placeholder || ''} onChange={(e) => props.onChange(e)} value={props.value} />
             <div className='line'></div>
         </div>
     );

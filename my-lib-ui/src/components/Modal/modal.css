@@ -17,8 +17,8 @@
 }
 
 .modal {
-  min-width: 20vw;
-  min-height: 20vh;
+  min-width: 40vw;
+  min-height: 40vh;
   height: auto;
   width: auto;
   background: white;
@@ -53,4 +53,7 @@
   background-color: #d14242;
   transition: all 0.25s ease;
   box-shadow: 0 5px 20px 0 rgba(0, 0, 0, 0.06);
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
 }

@@ -14,8 +14,8 @@ const Modal = (props: ModalProps) => {
       <div className="background" onClick={() => props.setIsOpen(false)} />
       <div className="centered">
         <div className="modal">
-          <button className="closeBtn" onClick={() => props.setIsOpen(false)}>Fermer</button>
           {props.children}
+          <button className="closeBtn" onClick={() => props.setIsOpen(false)}>Fermer</button>
         </div>
       </div>
     </>
