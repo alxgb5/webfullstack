@@ -10,3 +10,4 @@ export { default as RadioField } from './RadioField';
 export { default as PhoneField } from './PhoneField';
 export { default as CheckboxField } from './CheckboxField';
 export { default as TableComponent } from './TableComponent';
+export { default as Modal } from './Modal';
