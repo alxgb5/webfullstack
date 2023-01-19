@@ -1,4 +1,4 @@
-import { TableComponent, UIButton } from 'my-lib-ui';
+import { InputField, Modal, TableComponent, UIButton } from 'my-lib-ui';
 import { setLazyProp } from 'next/dist/server/api-utils';
 import Router from 'next/router';
 import { useEffect, useState } from 'react';
@@ -20,6 +20,11 @@ export default function Dashboard() {
 	const [users, setUsers] = useState<UserTableWrapper[]>([]);
 	const [loading, setLoading] = useState<boolean>(false);
 	const [refresh, setRefresh] = useState<boolean>(false);
+	const [openModal, setOpenModal] = useState<boolean>(false);
+
+	const [carName, setCarName] = useState<string>('');
+	const [carPrice, setCarPrice] = useState<number>(0);
+	const [carImg, setCarImg] = useState<string>('');
 
 	useEffect(() => {
 		if (!localStorage.getItem('ride_token')) {
@@ -141,6 +146,33 @@ export default function Dashboard() {
 		});
 	};
 
+	function handleModalSubmit() {
+		if (!carName || !carImg || !carPrice)
+			return;
+
+		fetch('/api/.car/cars', {
+			body: JSON.stringify({
+				name: carName,
+				img_url: carImg,
+				price: carPrice
+			}),
+			method: 'POST',
+			headers: {
+				'Content-Type': 'application/json',
+				'Authorization': `Bearer ${localStorage.getItem('ride_token')}`
+			},
+		}).then(async (response) => {
+			const parsedResponse: GenericResponse = await response.json();
+			setLoading(false);
+
+			if (parsedResponse.success) {
+				setRefresh(!refresh);
+			}
+		}, (error) => {
+			console.log("🚀 ~ fetch ~ error", error);
+		});
+	}
+
 	return (
 		<div className='dashboard-body'>
 			<HeadComponent />
@@ -153,6 +185,17 @@ export default function Dashboard() {
 						<button className={`tab-btn + ${currentTab == 1 ? ' current-tab' : ''} `} onClick={() => { setCurrentTab(1); }} key='vehicles'>Liste des véhicules</button>
 					</div>
 					{
+						openModal &&
+						<Modal setIsOpen={setOpenModal}>
+							<div className='add-car-form'>
+								<InputField label='Marque' value={carName} onChange={(e) => { setCarName(e.target.value); }} />
+								<InputField type='number' label='Prix' value={carPrice} onChange={(e) => { setCarPrice(Number(e.target.value)); }} />
+								<InputField label='Image' value={carImg} onChange={(e) => { setCarImg(e.target.value); }} />
+								<UIButton label='Enregistrer' color='dark' onClick={() => { handleModalSubmit(); }} />
+							</div>
+						</Modal>
+					}
+					{
 						loading ?
 							<LoaderComponent />
 							:
@@ -162,6 +205,7 @@ export default function Dashboard() {
 								</div>
 								:
 								<div className="dashboard-table-container">
+									<UIButton label='Ajouter un véhicule' color='light' onClick={() => { setOpenModal(true); }} />
 									<TableComponent headers={["Id", "Image", "Marque", "Prix", "Actions"]} rows={cars} />
 								</div>
 
