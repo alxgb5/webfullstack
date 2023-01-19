@@ -2,7 +2,7 @@ export interface Car {
     id: string,
     name: string,
     img_url: string,
-    price: number,
+    price: string,
     action: any;
 }
 
