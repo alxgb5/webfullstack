@@ -101,7 +101,7 @@ export default function Dashboard() {
 		}
 
 		for (const tempCar of tempCars) {
-			tempDataCars.push({ id: tempCar.id, img_url: <img src={tempCar.img_url} style={{ width: 200, height: 200, objectFit: 'contain' }} />, name: tempCar.name, price: tempCar.price + '€', action: <UIButton label='Suprimer' color='primary' onClick={() => handleDeleteCar(tempCar.id)}></UIButton> });
+			tempDataCars.push({ id: tempCar.id, img_url: <img src={tempCar.img_url} style={{ width: 200, height: 200, objectFit: 'contain' }} key={'carimg' + tempCar.id} />, name: tempCar.name, price: tempCar.price + '€', action: <UIButton label='Suprimer' color='primary' onClick={() => handleDeleteCar(tempCar.id)}></UIButton> });
 		}
 
 		setUsers(tempData);
@@ -167,6 +167,10 @@ export default function Dashboard() {
 
 			if (parsedResponse.success) {
 				setRefresh(!refresh);
+				setOpenModal(false);
+				setCarImg('');
+				setCarName('');
+				setCarPrice(0);
 			}
 		}, (error) => {
 			console.log("🚀 ~ fetch ~ error", error);
