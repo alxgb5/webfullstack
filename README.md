@@ -57,9 +57,10 @@ $ npm run storybook
 ```
 
 ## Run Electron
+
 ```bash
 $ cd electron
-$ npm i --depth 1
+$ npm i --registry https://registry.npmjs.org
 $ cd ..
 $ npm run lib:init
 ```
