@@ -53,6 +53,7 @@
     "electron": "^22.0.3",
     "electron-builder": "^23.6.0",
     "electronmon": "^2.0.2",
+    "sass": "^1.57.1",
     "wait-on": "^7.0.1"
   },
   "build": {
