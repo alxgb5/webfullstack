@@ -1,3 +1,4 @@
+import '../styles/FooterComponent.scss';
 const FooterComponent: React.FC = () => {
   return (
     <footer className="footer">
@@ -7,7 +8,7 @@ const FooterComponent: React.FC = () => {
 
       <p>RIDE 2022 - Tous droits réservés</p>
     </footer>
-  )
-}
+  );
+};
 
 export default FooterComponent;
