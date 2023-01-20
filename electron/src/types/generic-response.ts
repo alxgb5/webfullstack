@@ -5,6 +5,7 @@ export type GenericResponse = {
         users?: {}[],
         futureUsers?: {}[],
         cars?: {}[],
+        car?: {},
     },
     message: string,
 };

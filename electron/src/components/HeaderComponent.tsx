@@ -1,6 +1,6 @@
 import { UIButton } from 'my-lib-ui';
 import { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/HeaderComponent.scss';
 import Logo from '../assets/img/logo.svg';
 const HeaderComponent: React.FC = () => {
@@ -16,9 +16,11 @@ const HeaderComponent: React.FC = () => {
   return (
     <header className="header">
       <div className="left">
-        <img src={Logo} alt='Ride Logo' />
+        <Link to={'/'}>
+          <img src={Logo} alt='Ride Logo' />
 
-        <p>RIDE</p>
+          <p>RIDE</p>
+        </Link>
       </div>
       {
         !token &&

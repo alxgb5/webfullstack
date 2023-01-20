@@ -5,11 +5,13 @@ import { FormEvent, useState } from 'react';
 import { GenericResponse } from '../types/generic-response';
 import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Login.scss';
+
 export default function Login() {
   const [username, setUsername] = useState<string>('');
   const [password, setPassword] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
   const navigate = useNavigate();
+
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     setLoading(true);
     e.preventDefault();
@@ -19,7 +21,7 @@ export default function Login() {
       password: password,
     };
 
-    fetch('/api/.user/login/admin', {
+    fetch('api/.user/login', {
       body: JSON.stringify(user),
       method: 'POST',
       headers: {
@@ -31,7 +33,7 @@ export default function Login() {
 
       if (parsedResponse.success && parsedResponse.data?.token) {
         localStorage.setItem('ride_token', parsedResponse.data.token);
-        navigate('/dashboard');
+        navigate('/');
       }
     }, (error) => {
       console.log("🚀 ~ fetch ~ error", error);

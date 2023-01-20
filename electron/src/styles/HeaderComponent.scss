@@ -14,14 +14,18 @@
   .left {
     display: flex;
     align-items: center;
+
+    a {
+      display: flex;
+    }
   }
-  
+
   img {
     width: 66px;
     height: 66px;
     margin: 3px;
   }
-  
+
   p {
     margin: 0 0 0 12px;
     vertical-align: middle;

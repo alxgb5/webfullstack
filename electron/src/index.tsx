@@ -7,6 +7,8 @@ import Login from './pages/login';
 import Register from './pages/register';
 import Dashboard from './pages/dashboard';
 import Home from './pages/home';
+import Public from './pages/public';
+import CarDetail from './pages/car-detail';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -15,10 +17,12 @@ root.render(
   <React.StrictMode>
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Home />}></Route>
+        <Route path='/' element={<Public />}></Route>
+        <Route path='/register-form' element={<Home />}></Route>
         <Route path='/login' element={<Login />}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/dashboard' element={<Dashboard />}></Route>
+        <Route path='/car/:id' element={<CarDetail />}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
