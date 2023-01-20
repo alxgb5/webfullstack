@@ -3,7 +3,7 @@ import FooterComponent from '../components/FooterComponent';
 import { InputField, PasswordField, UIButton } from 'my-lib-ui';
 import { FormEvent, useState } from 'react';
 import { GenericResponse } from '../types/generic-response';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import '../styles/Login.scss';
 export default function Login() {
   const [username, setUsername] = useState<string>('');
@@ -47,7 +47,7 @@ export default function Login() {
 
       <main className='login'>
         <div className='loginCard'>
-          <a href={"/"} className="back"><span className='arrow'>←</span> retour</a>
+          <Link to={"/"} className="back"><span className='arrow'>←</span> retour</Link>
 
           <div className='loginForm'>
             <h1>Connexion</h1>
